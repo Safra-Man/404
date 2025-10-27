@@ -1,0 +1,8 @@
+# Garante que arquivos binários não sejam modificados pelo Git
+*.pdf binary
+*.doc binary
+*.docx binary
+*.xls binary
+*.xlsx binary
+*.ppt binary
+*.pptx binary
