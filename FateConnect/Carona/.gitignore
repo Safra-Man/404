@@ -1,0 +1,22 @@
+# --- Arquivos de Segredos ---
+# NUNCA ENVIE ESTE ARQUIVO!
+.env
+
+# --- Pastas de Build do Visual Studio/VS Code ---
+# Arquivos gerados pelo compilador
+[Bb]in/
+[Oo]bj/
+
+# --- Configurações do VS Code ---
+.vscode/
+
+# --- Arquivos do Entity Framework ---
+# Arquivos de usuário de ferramentas (podem conter segredos)
+*.user
+
+# --- Arquivos do Sistema Operacional ---
+# Windows
+Thumbs.db
+Desktop.ini
+# macOS
+.DS_Store
