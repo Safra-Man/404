@@ -1,6 +1,0 @@
-Corrigir questões, montar o formulário com o Microsoft Forms
-
-enviar o endereço do Forms
-
-
-Acertar requisitos Funcionais

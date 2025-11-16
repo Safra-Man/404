@@ -1,0 +1,12 @@
+Até 14/10 - 23h59
+=================
+
+Resultado da Pesquisa (template anexopesquisa)
+
+Nova versão Requisitos Funcionais (considerando possíveis sugestões da pesquisa e alterações do caso de uso)
+
+Nova versão Diagrama de Caso de uso - fazer especialização - e deve estar de acordo com a lista de requisitos funcionais
+
+Nova versão dos Requisitos NÃO funcionais
+
+Primeira Versão da Descrição de Caso de Uso (template descrição de caso de uso)
