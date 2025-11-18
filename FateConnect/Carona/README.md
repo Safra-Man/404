@@ -1,6 +1,6 @@
 # Microsserviço de Caronas - FateConnect
 
-Este é o microsserviço de back-end para o projeto FateConnect, focado no gerenciamento de caronas.
+Este é um dos microsserviços de back-end para o projeto FateConnect, focado no gerenciamento de caronas.
 Ele é construído em .NET 8 na arquitetura Domain-Driven Design (DDD).
 
 ---
