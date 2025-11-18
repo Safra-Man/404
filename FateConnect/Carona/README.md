@@ -34,7 +34,7 @@ Siga estes passos para configurar e executar a aplicação localmente.
 
 ### 2. Clonar o Repositório
 
-git clone [https://github.com/Safra-Man/404/FateConnect.git](https://github.com/Safra-Man/404/FateConnect.git)
+git clone [https://github.com/Safra-Man/404.git](https://github.com/Safra-Man/404.git)
 
 ### 3. Configurar as Variáveis de Ambiente
 
@@ -49,18 +49,11 @@ Com o terminal posicionado na raiz da pasta carona (FateConnect/Carona), execute
 dotnet restore
 dotnet tool restore
 
-### 5. Aplicar as Migrations
-
-Este comando executa os scripts de migração no banco de dados para criar as tabelas.
-Com o terminal posicionado em "FateConnect/Carona/Api", execute esse comando:
-
-dotnet ef database update
-
-### 6. Executar a Aplicação
+### 5. Executar a Aplicação
 Ainda na pasta "Api", execute esse comando:
 
 dotnet run
 
-### 7. Acessar a API
+### 6. Acessar a API
 Abra seu navegador e acesse a documentação do Swagger para testar os endpoints:
 http://[localhost:5123/swagger](http://localhost:5240/swagger/index.html)
