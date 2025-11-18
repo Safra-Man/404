@@ -47,6 +47,7 @@ Estes comandos restauram os pacotes e as ferramentas locais listadas nos arquivo
 Com o terminal posicionado na raiz da pasta carona (FateConnect/Carona), execute esses comandos:
 
 dotnet restore
+
 dotnet tool restore
 
 ### 5. Executar a Aplicação
