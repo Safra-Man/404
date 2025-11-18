@@ -43,7 +43,7 @@ Com o arquivo em mãos, cole-o na raiz da pasta Carona (FateConnect/Carona).
 
 ### 4. Restaurar Pacotes e Ferramentas
 
-Estes comandos restaura os pacotes e as ferramentas locais listadas nos arquivos de projeto.
+Estes comandos restauram os pacotes e as ferramentas locais listadas nos arquivos de projeto.
 Com o terminal posicionado na raiz da pasta carona (FateConnect/Carona), execute esses comandos:
 
 dotnet restore
