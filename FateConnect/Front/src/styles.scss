@@ -1,0 +1,69 @@
+@use '@angular/material' as mat;
+@use 'sass:color';
+
+$cor-principal-base: #43545C;
+$cor-destaque-base: #CF2E2E;
+
+$primary-palette: mat.m2-define-palette((
+  100: color.scale($cor-principal-base, $lightness: +25%),
+  500: $cor-principal-base,
+  700: color.scale($cor-principal-base, $lightness: -20%),
+
+  contrast: (
+    100: black,
+    500: white,
+    700: white,
+  )
+));
+
+$accent-palette: mat.m2-define-palette((
+  100: color.scale($cor-destaque-base, $lightness: +25%),
+  500: $cor-destaque-base,
+  700: color.scale($cor-destaque-base, $lightness: -20%),
+
+  contrast: (
+    100: black,
+    500: white,
+    700: white,
+  )
+));
+
+$tema-claro: mat.m2-define-light-theme((
+  color: (
+    primary: $primary-palette,
+    accent: $accent-palette
+  ),
+  density: 0
+));
+
+@include mat.all-component-themes($tema-claro);
+
+html, body, * {
+  font-family: 'Inter', 'Helvetica Neue', sans-serif !important;
+  margin: 0 !important;
+  padding: 0 !important;
+
+  box-sizing: border-box;
+}
+
+:root {
+  --app-cor-principal: #43545C;
+
+  --app-fundo-cinza: #F0F2F4;
+  --app-fundo-branco: #FFFFFF;
+
+  --app-texto-sobre-branco: #6C757D;
+  --app-texto-sobre-cinza: #747D84;
+  --app-texto-fundo-forte: rgba(255,255,255,0.9);
+
+  --app-cor-destaque: #CF2E2E;
+
+  --app-sucesso-fonte: #155724;
+  --app-sucesso-fundo: #D4EDDA;
+
+  --app-warning-fonte: #856404;
+  --app-warning-fundo: #FFF3CD;
+
+  --app-alerta-fonte: #CF2E2E;
+  --app-alerta-fundo: #FFDFDF;
+}
