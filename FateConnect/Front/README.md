@@ -21,8 +21,8 @@ npm i -g @angular/cli
 1. Clone o repositório:
 
 ```bash
-git clone <url-do-repo>
-cd <nome-do-projeto>
+git clone https://github.com/Safra-Man/404.git
+cd FateConnect/Front
 ```
 
 2. Instale as dependências:
