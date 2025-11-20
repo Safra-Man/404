@@ -38,7 +38,7 @@ npm install
 Rodar o ambiente de desenvolvimento:
 
 ```bash
-npm start
+ng serve
 ```
 
 O projeto abrirá em:
