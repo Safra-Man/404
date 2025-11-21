@@ -1,4 +1,4 @@
-# README — Frontend Angular 20
+# Frontend
 
 Frontend feito em **Angular 20.3.10** com **Angular Material**. O objetivo deste README é ensinar qualquer pessoa a rodar o projeto rapidamente, sem complicação.
 
