@@ -38,10 +38,12 @@ $tema-claro: mat.m2-define-light-theme((
 
 @include mat.all-component-themes($tema-claro);
 
-html, body, * {
-  font-family: 'Inter', 'Helvetica Neue', sans-serif !important;
-  margin: 0 !important;
-  padding: 0 !important;
+html,
+body,
+* {
+  font-family: 'Inter', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  padding: 0;
 
   box-sizing: border-box;
 }
@@ -66,4 +68,6 @@ html, body, * {
 
   --app-alerta-fonte: #CF2E2E;
   --app-alerta-fundo: #FFDFDF;
+
+  --app-divisor: #FFFFFF80;
 }
