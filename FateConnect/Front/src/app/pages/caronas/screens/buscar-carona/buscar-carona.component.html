@@ -1,0 +1,9 @@
+<div class="lista-caronas">
+
+  @for (item of listaCaronas; track item.id) {
+    <app-carona-card [carona]="item"></app-carona-card>
+  } @empty {
+    <p>Nenhuma carona encontrada.</p>
+  }
+
+</div>

@@ -1,5 +1,5 @@
 mat-toolbar {
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  // box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   transition: box-shadow 0.3s ease;
 
   position: fixed;
@@ -37,6 +37,7 @@ mat-toolbar {
 
 .sidenav-container {
   position: absolute;
+  height: calc(100vh - 64px);
   top: 64px;
   bottom: 0;
   left: 0;

@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
 import { LayoutComponent } from './core/layout/layout.component';
-import { BuscarCaronaComponent } from './pages/caronas/buscar-carona/buscar-carona.component';
 import { CaronasComponent } from './pages/caronas/caronas.component';
-import { OfertarCaronaComponent } from './pages/caronas/ofertar-carona/ofertar-carona.component';
+import { BuscarCaronaComponent } from './pages/caronas/screens/buscar-carona/buscar-carona.component';
+import { OfertarCaronaComponent } from './pages/caronas/screens/ofertar-carona/ofertar-carona.component';
 import { MenuComponent } from './pages/menu/menu.component';
 
 export const routes: Routes = [

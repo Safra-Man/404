@@ -1,0 +1,50 @@
+<mat-card class="card-container">
+  <mat-card-content>
+
+    <div class="header-row">
+      <h3 class="destino">{{ carona.destino }}</h3>
+
+      <div class="right-side">
+        <div class="tags desktop-only">
+          <span [class]="getCorTipoCarona(carona.tipoCarona)">{{ getTextoTipoCaronaCorrigido(carona.tipoCarona) }}</span>
+        </div>
+
+        <div class="acoes">
+          <button mat-icon-button aria-label="Editar">
+            <fa-icon [icon]="iconeEditar"></fa-icon>
+          </button>
+
+          <button mat-icon-button aria-label="Excluir">
+             <fa-icon [icon]="iconeDeletar"></fa-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-row">
+      <div class="info-item">
+        <fa-icon [icon]="iconeCalendario" class="small-icon"></fa-icon>
+        <span>{{ carona.dataPartida | date:'dd/MM/yyyy' }}</span>
+      </div>
+
+      <div class="info-item">
+        <fa-icon [icon]="iconeRelogio" class="small-icon"></fa-icon>
+        <span>{{ carona.horaPartida | slice:0:5 }}</span>
+      </div>
+
+      <div class="info-item">
+        <fa-icon [icon]="iconeUserGroup" class="small-icon"></fa-icon>
+        <span>{{ carona.qtdVagas }} vagas</span>
+      </div>
+    </div>
+
+    <p class="descricao">
+      {{ carona.descricao }}
+    </p>
+
+    <div class="tags mobile-only">
+      <span [class]="getCorTipoCarona(carona.tipoCarona)">{{ getTextoTipoCaronaCorrigido(carona.tipoCarona) }}</span>
+    </div>
+
+  </mat-card-content>
+</mat-card>

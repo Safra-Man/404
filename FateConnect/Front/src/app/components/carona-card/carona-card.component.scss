@@ -1,0 +1,126 @@
+.card-container {
+  margin-bottom: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  background: var(--app-fundo-branco);
+  color: var(--app-cor-principal);
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+
+  .destino {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--app-cor-principal);
+  }
+
+  .right-side {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+}
+
+.info-row {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 12px;
+  color: var(--app-texto-sobre-branco);
+
+  .info-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+
+    fa-icon.small-icon {
+      color: var(--app-cor-destaque);
+      font-size: 16px;
+    }
+  }
+}
+
+.descricao {
+  color: var(--app-texto-sobre-branco);
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.tags {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.badge {
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+
+  &.green {
+    background-color: var(--app-sucesso-fundo);
+    color: var(--app-sucesso-fonte);
+  }
+
+  &.orange {
+    background-color: var(--app-warning-fundo);
+    color: var(--app-warning-fonte);
+  }
+
+  &.gray {
+    background-color: var(--app-fundo-cinza);
+    color: var(--app-texto-sobre-cinza);
+  }
+}
+
+.acoes {
+  display: flex;
+
+  button {
+    fa-icon {
+        color: var(--app-cor-principal);
+        font-size: 1.1rem;
+    }
+
+    opacity: 0.7;
+    transition: opacity 0.2s;
+
+    &:hover {
+        opacity: 1;
+    }
+  }
+}
+
+.mobile-only {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .desktop-only {
+    display: none !important;
+  }
+
+  .mobile-only {
+    display: flex !important;
+    justify-content: flex-end;
+    margin-top: 12px;
+  }
+
+  .info-row {
+    justify-content: space-between;
+    gap: 8px;
+    font-size: 0.85rem;
+  }
+
+  .header-row {
+    align-items: flex-start;
+  }
+}
