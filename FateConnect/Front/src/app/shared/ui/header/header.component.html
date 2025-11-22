@@ -1,8 +1,6 @@
-<mat-toolbar color="primary" [class.sem-sombra]="drawer.opened">
+<mat-toolbar color="primary" [class.sem-sombra]="drawer?.opened">
 
-  <span class="logo-app">FateConnect</span>
-
-  <span class="spacer"></span>
+  <span class="logo-app" routerLink="/menu">FateConnect</span>
 
   <div class="desktop-menu">
     <button mat-button routerLink="/achados-perdidos">Achados & Perdidos</button>
@@ -10,22 +8,8 @@
     <button mat-button routerLink="/contato">Entre em Contato</button>
   </div>
 
-  <button mat-icon-button class="mobile-menu-btn" (click)="drawer.toggle()">
+  <button mat-icon-button class="mobile-menu-btn" (click)="drawer?.toggle()">
     <fa-icon [icon]="iconeHambuguer" size="lg"></fa-icon>
   </button>
 
 </mat-toolbar>
-
-<mat-sidenav-container class="sidenav-container">
-
-  <mat-sidenav #drawer mode="over" position="end" class="sidenav">
-
-    <mat-nav-list>
-      <a mat-list-item routerLink="/achados-perdidos" (click)="drawer.close()">Achados & Perdidos</a>
-      <a mat-list-item routerLink="/caronas" (click)="drawer.close()">Caronas</a>
-      <a mat-list-item routerLink="/contato" (click)="drawer.close()">Entre em Contato</a>
-    </mat-nav-list>
-
-  </mat-sidenav>
-
-</mat-sidenav-container>

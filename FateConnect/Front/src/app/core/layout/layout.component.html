@@ -1,7 +1,26 @@
-<main>
-  <app-header></app-header>
+<mat-sidenav-container class="sidenav-container">
 
-  <router-outlet></router-outlet>
+  <mat-sidenav #drawer mode="over" position="end" class="sidenav">
+    <div class="logo-container">
+      <span class="logo-app">FateConnect</span>
+    </div>
 
-  <app-footer></app-footer>
-</main>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/achados-perdidos" (click)="drawer.close()">Achados & Perdidos</a>
+      <a mat-list-item routerLink="/caronas" (click)="drawer.close()">Caronas</a>
+      <a mat-list-item routerLink="/contato" (click)="drawer.close()">Entre em Contato</a>
+    </mat-nav-list>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <main>
+      <app-header [drawer]="drawer"></app-header>
+
+      <router-outlet></router-outlet>
+
+      <app-footer></app-footer>
+    </main>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
