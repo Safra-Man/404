@@ -11,7 +11,7 @@ import {
   faTrash,
   faUserGroup
 } from '@fortawesome/free-solid-svg-icons';
-import { Carona } from '../../pages/caronas/models/carona.model';
+import { Carona } from '../../models/carona.model';
 
 @Component({
   selector: 'app-carona-card',
@@ -30,7 +30,7 @@ export class CaronaCardComponent {
   iconeDeletar = faTrash;
 
   getCorTipoCarona(tipo: string): string {
-    return tipo == "Filantropica" ? "verde" : "marrom";
+    return `tag ${tipo == "Filantropica" ? "verde" : "marrom"}`;
   }
 
   getTextoTipoCaronaCorrigido(tipo: string): string {

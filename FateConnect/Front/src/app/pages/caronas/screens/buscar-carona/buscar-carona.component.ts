@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { CaronaCardComponent } from '../../../../components/carona-card/carona-card.component';
+import { CaronaCardComponent } from '../../components/carona-card/carona-card.component';
 import { Carona } from '../../models/carona.model';
 import { CaronaService } from '../../services/carona.service';
 
