@@ -4,3 +4,36 @@ main {
   justify-content: space-between;
   height: 100vh;
 }
+
+.sidenav-container {
+  background-color: var(--app-fundo-cinza);
+  height: 100vh;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 3vw;
+}
+
+.logo-app {
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: var(--app-texto-fundo-forte);
+}
+
+.sidenav {
+  width: 300px;
+  background-color: var(--app-cor-principal);
+  padding: 7vw 0;
+
+  mat-nav-list {
+    a[mat-list-item] {
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.6);
+      }
+    }
+  }
+}
