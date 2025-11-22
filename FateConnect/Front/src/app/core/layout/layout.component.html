@@ -5,6 +5,7 @@
       <span class="logo-app">FateConnect</span>
     </div>
 
+
     <mat-nav-list>
       <a mat-list-item routerLink="/achados-perdidos" (click)="drawer.close()">Achados & Perdidos</a>
       <a mat-list-item routerLink="/caronas" (click)="drawer.close()">Caronas</a>
@@ -14,10 +15,12 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <main>
+    <main class="layout">
       <app-header [drawer]="drawer"></app-header>
 
-      <router-outlet></router-outlet>
+      <div class="conteudo">
+        <router-outlet></router-outlet>
+      </div>
 
       <app-footer></app-footer>
     </main>

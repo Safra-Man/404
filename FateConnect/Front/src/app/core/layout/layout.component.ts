@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterModule, RouterOutlet } from '@angular/router';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { HeaderComponent } from '../../shared/ui/header/header.component';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { FooterComponent } from '../../shared/ui/footer/footer.component';
+import { HeaderComponent } from '../../shared/ui/header/header.component';
+
 
 @Component({
   selector: 'app-layout',
