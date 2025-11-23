@@ -1,1 +1,8 @@
-<p>confirm-dialog works!</p>
+ <mat-dialog-content>
+  <h2 class="title">{{ data.title || 'Confirmar ação' }}</h2>
+   <p class="message" [innerHTML]="data.message || 'Tem certeza que deseja continuar?'"></p>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button extended mat-raised-button color="primary" (click)="onCancel()">{{ data.cancelText || 'Cancelar' }}</button>
+  <button extended mat-raised-button color="accent" (click)="onConfirm()">{{ data.confirmText || 'Confirmar' }}</button>
+</mat-dialog-actions>
