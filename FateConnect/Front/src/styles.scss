@@ -84,4 +84,17 @@ body,
     subhead-color: var(--app-cor-principal),
     supporting-text-color: var(--app-cor-principal),
   ));
+
+  @include mat.snack-bar-overrides((
+    button-color: var(--app-texto-sobre-branco),
+    supporting-text-color: var(--app-texto-sobre-branco),
+  ));
+}
+
+// Estilização customizada da Snackbar
+.mat-mdc-snack-bar-container.snackbar-success .mdc-snackbar__surface {
+  background-color: var(--app-sucesso-fundo);
+}
+.mat-mdc-snack-bar-container.snackbar-error .mdc-snackbar__surface {
+  background-color: var(--app-alerta-fundo);
 }
