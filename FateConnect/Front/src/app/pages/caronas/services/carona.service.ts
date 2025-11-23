@@ -16,4 +16,7 @@ export class CaronaService {
     return this.http.get<Carona[]>(this.apiUrl);
   }
 
+  excluirCarona(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
 }

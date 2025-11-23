@@ -4,7 +4,7 @@
   } @else {
     @if (listaCaronas.length > 0) {
       @for (item of listaCaronas; track item.id) {
-        <app-carona-card [carona]="item"></app-carona-card>
+        <app-carona-card [carona]="item" (excluir)="onExcluir($event)"></app-carona-card>
       }
     } @else {
       <p>Nenhuma carona encontrada.</p>
