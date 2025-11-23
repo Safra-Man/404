@@ -1,9 +1,13 @@
 <div class="lista-caronas">
-
-  @for (item of listaCaronas; track item.id) {
-    <app-carona-card [carona]="item"></app-carona-card>
-  } @empty {
-    <p>Nenhuma carona encontrada.</p>
+  @if (isLoading) {
+    <mat-progress-spinner mode="indeterminate" diameter="60"></mat-progress-spinner>
+  } @else {
+    @if (listaCaronas.length > 0) {
+      @for (item of listaCaronas; track item.id) {
+        <app-carona-card [carona]="item"></app-carona-card>
+      }
+    } @else {
+      <p>Nenhuma carona encontrada.</p>
+    }
   }
-
 </div>

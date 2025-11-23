@@ -1,0 +1,14 @@
+:host {
+  display: flex;
+  flex: 1;
+  height: 100%;
+  width: 100%;
+}
+
+.lista-caronas {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
