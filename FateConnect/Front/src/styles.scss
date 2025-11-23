@@ -78,4 +78,10 @@ body,
     list-item-leading-icon-end-space: 7vw,
     list-item-focus-label-text-color: var(--app-texto-fundo-forte),
   ));
+
+  @include mat.dialog-overrides((
+    container-shape: 16px,
+    subhead-color: var(--app-cor-principal),
+    supporting-text-color: var(--app-cor-principal),
+  ));
 }
