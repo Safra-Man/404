@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Front": {
+    "FateConnect": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -61,10 +61,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Front:build:production"
+              "buildTarget": "FateConnect:build:production"
             },
             "development": {
-              "buildTarget": "Front:build:development"
+              "buildTarget": "FateConnect:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -94,5 +94,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
