@@ -53,6 +53,7 @@ body,
 
   --app-fundo-cinza: #F0F2F4;
   --app-fundo-branco: #FFFFFF;
+  --app-fundo-hover: rgba(255, 255, 255, 0.6);
 
   --app-texto-sobre-branco: #6C757D;
   --app-texto-sobre-cinza: #747D84;
@@ -84,4 +85,22 @@ body,
     list-item-leading-icon-end-space: 7vw,
     list-item-focus-label-text-color: var(--app-texto-fundo-forte),
   ));
+
+  @include mat.dialog-overrides((
+    container-shape: 16px,
+    subhead-color: var(--app-cor-principal),
+    supporting-text-color: var(--app-cor-principal),
+  ));
+
+  @include mat.snack-bar-overrides((
+    button-color: var(--app-texto-sobre-branco),
+    supporting-text-color: var(--app-texto-sobre-branco),
+  ));
+}
+
+.mat-mdc-snack-bar-container.snackbar-success .mdc-snackbar__surface {
+  background-color: var(--app-sucesso-fundo);
+}
+.mat-mdc-snack-bar-container.snackbar-error .mdc-snackbar__surface {
+  background-color: var(--app-alerta-fundo);
 }

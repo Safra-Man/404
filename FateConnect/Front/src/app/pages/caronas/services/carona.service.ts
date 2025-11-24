@@ -12,7 +12,6 @@ export class CaronaService {
   private http = inject(HttpClient);
   private apiUrl = "http://191.252.210.114:5000/api/Caronas";
 
-
   listarCaronas(filtros?: FiltroCarona) : Observable<Carona[]>{
     let params = new HttpParams();
 
@@ -35,5 +34,9 @@ export class CaronaService {
     }
 
     return this.http.get<Carona[]>(this.apiUrl, { params });
+  }
+
+  excluirCarona(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 }

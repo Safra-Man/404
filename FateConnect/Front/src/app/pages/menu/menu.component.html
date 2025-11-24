@@ -1,1 +1,20 @@
-<p>menu works!</p>
+<h1>Bem-vindo ao FateConnect</h1>
+<p>Escolha um dos serviços abaixo para começar.</p>
+
+<div class="cards-container">
+  <button routerLink="/achados-perdidos">
+    <div class="icon-container">
+      <fa-icon [icon]="faSearch"></fa-icon>
+    </div>
+
+    <h2>Achados & Perdidos</h2>
+  </button>
+
+  <button routerLink="/caronas">
+    <div class="icon-container">
+      <fa-icon [icon]="faCar"></fa-icon>
+    </div>
+
+    <h2>Caronas</h2>
+  </button>
+</div>

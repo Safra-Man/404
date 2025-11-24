@@ -8,5 +8,5 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  protected readonly title = signal('Front');
+  protected readonly title = signal('FateConnect');
 }

@@ -1,9 +1,15 @@
+:host {
+  display: flex;
+  width: 100%;
+}
+
 .card-container {
   margin-bottom: 16px;
   border-radius: var(--app-borda-componentes);
   box-shadow: var(--app-sombra-componentes);
   background: var(--app-fundo-branco);
   color: var(--app-cor-principal);
+  width: 100%;
 }
 
 .header-row {

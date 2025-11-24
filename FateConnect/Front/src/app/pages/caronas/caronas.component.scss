@@ -1,0 +1,62 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  gap: 1rem;
+}
+
+.caronas-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn-voltar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: var(--app-borda-componentes);
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--app-texto-fundo-forte);
+  background: var(--app-cor-principal);
+  box-shadow: var(--app-sombra-componentes);
+}
+
+.caronas-tabs {
+  display: flex;
+  width: 100%;
+  border-radius: var(--app-borda-componentes);
+  margin-top: 1rem;
+  background: var(--app-fundo-branco);
+  box-shadow: var(--app-sombra-componentes);
+}
+
+.tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  text-decoration: none;
+  color: var(--app-cor-principal);
+  font-weight: 600;
+  padding: 16px 4px;
+}
+
+.tab.left {
+  border-top-left-radius: var(--app-borda-componentes);
+  border-bottom-left-radius: var(--app-borda-componentes);
+}
+
+.tab.right {
+  border-top-right-radius: var(--app-borda-componentes);
+  border-bottom-right-radius: var(--app-borda-componentes);
+}
+
+.tab.ativo {
+  background: var(--app-cor-destaque);
+  color: var(--app-texto-fundo-forte);
+}

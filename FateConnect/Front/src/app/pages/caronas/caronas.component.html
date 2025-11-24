@@ -1,1 +1,29 @@
+<div class="caronas-header">
+  <h1>Caronas</h1>
+  <a class="btn-voltar" routerLink="/menu">
+    <fa-icon [icon]="iconeVoltar"></fa-icon>
+    Voltar
+  </a>
+</div>
+
+<div class="caronas-tabs">
+  <a
+    class="tab left"
+    routerLink="buscar"
+    routerLinkActive="ativo"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    <fa-icon [icon]="iconeBuscar"></fa-icon>
+    Buscar Carona
+  </a>
+  <a
+    class="tab right"
+    routerLink="ofertar"
+    routerLinkActive="ativo"
+  >
+    <fa-icon [icon]="iconeAdicionar"></fa-icon>
+    Ofertar Carona
+  </a>
+</div>
+
 <router-outlet></router-outlet>
