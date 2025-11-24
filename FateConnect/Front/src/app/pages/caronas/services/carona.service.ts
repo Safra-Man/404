@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
-
+import { environment } from '../../../../environments/environment.development';
 import { Carona } from '../models/carona.model';
 import { FiltroCarona } from '../models/filtro.model';
 
@@ -10,7 +10,7 @@ import { FiltroCarona } from '../models/filtro.model';
 })
 export class CaronaService {
   private http = inject(HttpClient);
-  private apiUrl = "http://191.252.210.114:5000/api/Caronas";
+  private apiUrl = `${environment.apiUrl}/caronas`;
 
   listarCaronas(filtros?: FiltroCarona) : Observable<Carona[]>{
     let params = new HttpParams();
