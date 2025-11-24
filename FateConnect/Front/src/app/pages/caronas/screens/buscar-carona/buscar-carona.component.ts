@@ -11,7 +11,7 @@ import { CaronaService } from '../../services/carona.service';
 
 @Component({
   selector: 'app-buscar-carona',
-  imports: [CommonModule, CaronaCardComponent, CaronaFilterComponent, MatProgressSpinnerModule, MatSnackBarModule],
+  imports: [CommonModule, CaronaCardComponent, MatProgressSpinnerModule, MatSnackBarModule, CaronaFilterComponent],
   templateUrl: './buscar-carona.component.html',
   styleUrl: './buscar-carona.component.scss',
 })

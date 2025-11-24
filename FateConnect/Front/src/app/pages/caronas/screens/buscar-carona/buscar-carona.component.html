@@ -4,7 +4,12 @@
 
 <div class="lista-caronas">
   @if (isLoading) {
-    <mat-progress-spinner mode="indeterminate" diameter="60"></mat-progress-spinner>
+    <div class="loading-container">
+      <mat-progress-spinner
+        mode="indeterminate"
+        diameter="60">
+      </mat-progress-spinner>
+    </div>
   } @else {
     @if (listaCaronas.length > 0) {
       @for (item of listaCaronas; track item.id) {
