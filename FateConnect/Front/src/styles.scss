@@ -71,6 +71,13 @@ body,
 
   --app-divisor: #FFFFFF80;
 
+  --app-sombra-componentes: 0 2px 5px rgba(0,0,0,0.08);
+  --app-borda-componentes: 8px;
+  --app-tamanho-texto-fonte: 0.95rem;
+  --app-tamanho-tag-fonte: 0.8rem;
+  --app-tamanho-subtitulo-fonte: 1.1rem;
+  --app-tamanho-padrao-icone: 16px;
+
   @include mat.list-overrides((
     list-item-label-text-color: var(--app-texto-fundo-forte),
     list-item-leading-icon-start-space: 7vw,

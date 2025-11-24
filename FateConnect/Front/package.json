@@ -22,6 +22,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular/animations": "^20.3.13",
     "@angular/cdk": "^20.2.14",
     "@angular/common": "^20.3.0",
     "@angular/compiler": "^20.3.0",
@@ -35,6 +36,7 @@
     "@fortawesome/free-brands-svg-icons": "^7.1.0",
     "@fortawesome/free-regular-svg-icons": "^7.1.0",
     "@fortawesome/free-solid-svg-icons": "^7.1.0",
+    "ngx-material-timepicker": "^13.1.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"

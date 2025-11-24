@@ -1,0 +1,123 @@
+.filter-panel {
+  margin-bottom: 16px;
+  border-radius: var(--app-borda-componentes);
+  box-shadow: var(--app-sombra-componentes) !important;
+  background: var(--app-fundo-branco);
+  color: var(--app-cor-principal);
+
+  &.mat-expansion-panel {
+    border: none;
+  }
+}
+
+.filter-header {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-weight: 600;
+  font-size: var(--app-tamanho-subtitulo-fonte);
+  color: var(--app-cor-principal);
+
+  .filter-icon {
+    font-size: 1.3rem;
+    color: var(--app-cor-principal);
+  }
+}
+
+.inputs-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    flex: 1 1 calc(20% - 16px);
+    min-width: 180px;
+  }
+}
+
+.custom-label {
+  font-size: var(--app-tamanho-texto-fonte);
+  font-weight: 600;
+  color: var(--app-cor-principal);
+  display: flex;
+
+  .info-icon {
+    margin-left: 3px;
+    color: var(--app-cor-principal);
+    font-size: var(--app-tamanho-tag-fonte);
+    opacity: 0.8;
+  }
+}
+
+.time-icon {
+  color: var(--app-texto-sobre-branco);
+}
+
+.btn-filtrar {
+  height: 56px;
+  font-size: var(--app-tamanho-subtitulo-fonte);
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--app-borda-componentes);
+  background-color: var(--app-cor-destaque);
+  color: var(--app-texto-fundo-forte);
+}
+
+@media (max-width: 768px) {
+  .mobile-hidden {
+    display: none;
+  }
+}
+
+.time-icon {
+  cursor: pointer;
+}
+
+::ng-deep{
+  .mat-mdc-option {
+    color: var(--app-cor-principal);
+    font-size: var(--app-tamanho-texto-fonte) !important;
+
+    &.mat-mdc-option-active, &.mat-mdc-option-selected {
+      color: var(--app-cor-principal);
+    }
+
+    .mdc-list-item__primary-text {
+      color: inherit;
+    }
+  }
+
+  .mat-expansion-panel-body {
+    padding-bottom: 32px !important;
+  }
+
+  .mdc-notched-outline__leading {
+    border-top-left-radius: 8px !important;
+    border-bottom-left-radius: 8px !important;
+    width: 8px !important;
+  }
+
+  .mdc-notched-outline__trailing {
+    border-top-right-radius: 8px !important;
+    border-bottom-right-radius: 8px !important;
+  }
+
+  .mat-mdc-input-element,
+  .mat-mdc-select-value-text,
+  .mat-mdc-select-placeholder {
+    font-size: var(--app-tamanho-texto-fonte) !important;
+    line-height: 1.5 !important;
+  }
+}
+

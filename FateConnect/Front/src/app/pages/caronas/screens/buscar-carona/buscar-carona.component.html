@@ -1,3 +1,7 @@
+<div class="filter-carona">
+  <app-carona-filter (filterTriggered)="buscarCaronas($event)"></app-carona-filter>
+</div>
+
 <div class="lista-caronas">
 
   @for (item of listaCaronas; track item.id) {

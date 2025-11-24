@@ -1,1 +1,67 @@
-<p>carona-filter works!</p>
+<mat-expansion-panel [expanded]="true" class="filter-panel">
+
+  <mat-expansion-panel-header>
+    <mat-panel-title class="filter-header">
+      <fa-icon [icon]="iconeFiltro" class="filter-icon"></fa-icon>
+      <span>Filtros</span>
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+
+  <form [formGroup]="filterForm" (ngSubmit)="onFiltrar()">
+
+    <div class="inputs-container">
+
+      <div class="input-wrapper">
+        <label class="custom-label">Data</label>
+        <mat-form-field appearance="outline" subscriptSizing="dynamic">
+          <input matInput [matDatepicker]="picker" formControlName="data" placeholder="mm/dd/aaaa">
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <div class="input-wrapper">
+        <label class="custom-label">Hora</label>
+        <mat-form-field appearance="outline" subscriptSizing="dynamic">
+          <input matInput type="time" formControlName="hora" #horaInput>
+
+          <mat-icon matIconSuffix class="time-icon" (click)="horaInput.showPicker()">
+            schedule
+          </mat-icon>
+        </mat-form-field>
+      </div>
+
+      <div class="input-wrapper">
+        <label class="custom-label">Destino</label>
+        <mat-form-field appearance="outline" subscriptSizing="dynamic">
+          <input matInput placeholder="Digite o destino" formControlName="destino">
+        </mat-form-field>
+      </div>
+
+      <div class="input-wrapper">
+        <label class="custom-label">
+          Tipo
+          <fa-icon [icon]="iconeInfo" class="info-icon" matTooltip="Filtrar por tipo de carona: Filantrópica, com caronas totalmente gratuitas, ou Igualitária, em que os participantes dividem os custos."></fa-icon>
+        </label>
+        <mat-form-field appearance="outline" subscriptSizing="dynamic">
+          <mat-select formControlName="tipoCarona" placeholder="Selecione">
+            @for (option of tipoCarona; track option.value) {
+              <mat-option [value]="option.value">
+                {{ option.viewValue }}
+              </mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="input-wrapper button-wrapper">
+        <label class="custom-label mobile-hidden">&nbsp;</label> <button mat-raised-button color="warn" type="submit" class="btn-filtrar">
+          <fa-icon [icon]="iconeLupa"></fa-icon>
+          Filtrar
+        </button>
+      </div>
+
+    </div>
+
+  </form>
+</mat-expansion-panel>

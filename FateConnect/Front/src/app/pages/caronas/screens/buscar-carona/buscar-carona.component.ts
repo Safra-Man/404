@@ -1,12 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { CaronaCardComponent } from '../../components/carona-card/carona-card.component';
+import { CaronaFilterComponent } from "../../components/carona-filter/carona-filter.component";
 import { Carona } from '../../models/carona.model';
+import { FiltroCarona } from '../../models/filtro.model';
 import { CaronaService } from '../../services/carona.service';
 
 @Component({
   selector: 'app-buscar-carona',
-  imports: [CommonModule, CaronaCardComponent],
+  imports: [CommonModule, CaronaCardComponent, CaronaFilterComponent],
   templateUrl: './buscar-carona.component.html',
   styleUrl: './buscar-carona.component.scss'
 })
@@ -16,13 +18,12 @@ export class BuscarCaronaComponent {
   listaCaronas: Carona[] = [];
 
   ngOnInit(): void {
-    this.buscarDados();
+    this.buscarCaronas();
   }
 
-  buscarDados() {
-    this.caronaService.listarCaronas().subscribe({
+  buscarCaronas(filtros?: FiltroCarona) {
+    this.caronaService.listarCaronas(filtros).subscribe({
       next: (dadosApi) => {
-        console.log(dadosApi);
         this.listaCaronas = dadosApi;
       },
       error: (erro) => {

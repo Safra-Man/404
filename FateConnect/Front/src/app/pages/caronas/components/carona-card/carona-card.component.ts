@@ -23,11 +23,11 @@ import { Carona } from '../../models/carona.model';
 export class CaronaCardComponent {
   @Input({ required: true }) carona!: Carona;
 
-  iconeCalendario = faCalendar;
-  iconeRelogio = faClock;
-  iconeUserGroup = faUserGroup;
-  iconeEditar = faPenToSquare;
-  iconeDeletar = faTrash;
+  protected readonly iconeCalendario = faCalendar;
+  protected readonly iconeRelogio = faClock;
+  protected readonly iconeUserGroup = faUserGroup;
+  protected readonly iconeEditar = faPenToSquare;
+  protected readonly iconeDeletar = faTrash;
 
   getCorTipoCarona(tipo: string): string {
     return `tag ${tipo == "Filantropica" ? "verde" : "marrom"}`;
