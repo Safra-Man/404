@@ -44,11 +44,12 @@ button {
   min-width: 300px;
   height: auto;
   background-color: var(--app-fundo-branco);
+  box-shadow: var(--app-sombra-componentes);
 
   &:hover {
-    background-color: var(--app-fundo-hover);
+    transform: scale(1.05);
   }
-  transition: background-color 0.3s ease;
+  transition: transform 0.3s ease;
   cursor: pointer;
 }
 
