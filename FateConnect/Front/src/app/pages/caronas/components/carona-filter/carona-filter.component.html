@@ -3,7 +3,7 @@
   <mat-expansion-panel-header>
     <mat-panel-title class="filter-header">
       <fa-icon [icon]="iconeFiltro" class="filter-icon"></fa-icon>
-      <span>Filtros</span>
+      <app-typography variant="subtitle-bold">Filtros</app-typography>
     </mat-panel-title>
   </mat-expansion-panel-header>
 
@@ -12,7 +12,9 @@
     <div class="inputs-container">
 
       <div class="input-wrapper">
-        <label class="custom-label">Data</label>
+        <label class="custom-label">
+          <app-typography variant="subtitle-bold">Data</app-typography>
+        </label>
         <mat-form-field appearance="outline" subscriptSizing="dynamic">
           <input matInput [matDatepicker]="picker" formControlName="data" placeholder="mm/dd/aaaa">
           <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
@@ -21,7 +23,9 @@
       </div>
 
       <div class="input-wrapper">
-        <label class="custom-label">Hora</label>
+        <label class="custom-label">
+          <app-typography variant="subtitle-bold">Hora</app-typography>
+        </label>
         <mat-form-field appearance="outline" subscriptSizing="dynamic">
           <input matInput type="time" formControlName="hora" #horaInput>
 
@@ -32,7 +36,9 @@
       </div>
 
       <div class="input-wrapper">
-        <label class="custom-label">Destino</label>
+        <label class="custom-label">
+          <app-typography variant="subtitle-bold">Destino</app-typography>
+        </label>
         <mat-form-field appearance="outline" subscriptSizing="dynamic">
           <input matInput placeholder="Digite o destino" formControlName="destino">
         </mat-form-field>
@@ -40,7 +46,7 @@
 
       <div class="input-wrapper">
         <label class="custom-label">
-          Tipo
+          <app-typography variant="subtitle-bold">Tipo</app-typography>
           <fa-icon [icon]="iconeInfo" class="info-icon" matTooltip="Filtrar por tipo de carona: Filantrópica, com caronas totalmente gratuitas, ou Igualitária, em que os participantes dividem os custos."></fa-icon>
         </label>
         <mat-form-field appearance="outline" subscriptSizing="dynamic">
@@ -57,7 +63,7 @@
       <div class="input-wrapper button-wrapper">
         <label class="custom-label mobile-hidden">&nbsp;</label> <button mat-raised-button color="warn" type="submit" class="btn-filtrar">
           <fa-icon [icon]="iconeLupa"></fa-icon>
-          Filtrar
+          <app-typography variant="subtitle-bold">Filtrar</app-typography>
         </button>
       </div>
 

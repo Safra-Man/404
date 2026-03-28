@@ -4,20 +4,28 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { finalize } from 'rxjs/operators';
 import { CaronaCardComponent } from '../../components/carona-card/carona-card.component';
-import { CaronaFilterComponent } from "../../components/carona-filter/carona-filter.component";
+import { CaronaFilterComponent } from '../../components/carona-filter/carona-filter.component';
+import { TypographyComponent } from '../../../../shared/ui/typography/typography';
 import { Carona } from '../../models/carona.model';
 import { FiltroCarona } from '../../models/filtro.model';
 import { CaronaService } from '../../services/carona.service';
 
 @Component({
   selector: 'app-buscar-carona',
-  imports: [CommonModule, CaronaCardComponent, MatProgressSpinnerModule, MatSnackBarModule, CaronaFilterComponent],
+  imports: [
+    CommonModule,
+    CaronaCardComponent,
+    MatProgressSpinnerModule,
+    MatSnackBarModule,
+    CaronaFilterComponent,
+    TypographyComponent,
+  ],
   templateUrl: './buscar-carona.component.html',
   styleUrl: './buscar-carona.component.scss',
 })
 export class BuscarCaronaComponent {
-  private caronaService = inject(CaronaService);
-  private snackBar = inject(MatSnackBar);
+  private readonly caronaService = inject(CaronaService);
+  private readonly snackBar = inject(MatSnackBar);
 
   listaCaronas: Carona[] = [];
   isLoading = false;

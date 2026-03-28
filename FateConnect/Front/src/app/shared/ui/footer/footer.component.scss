@@ -5,21 +5,13 @@
   background-color: var(--app-cor-principal);
   color: var(--app-texto-fundo-forte);
   padding: 3vw 7vw;
+
+  app-typography {
+    --app-typography-text-color: var(--app-texto-fundo-forte);
+  }
   height: auto;
   gap: 1rem;
   width: 100vw;
-}
-
-p,
-span {
-  font-size: 14px;
-  font-weight: 400;
-  color: var(--app-texto-fundo-forte);
-}
-
-.footer-title {
-  font-size: 1.5rem;
-  font-weight: 700;
 }
 
 .contacts-container {
@@ -28,6 +20,13 @@ span {
   justify-content: center;
   gap: 1rem;
   width: 100%;
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .divider-container {
@@ -63,8 +62,4 @@ span {
     height: 1px;
   }
 
-  p,
-  span {
-    text-align: center;
-  }
 }

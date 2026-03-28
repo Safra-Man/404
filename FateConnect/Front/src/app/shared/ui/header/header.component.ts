@@ -1,13 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
 import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { TypographyComponent } from '../typography/typography';
 
 @Component({
   selector: 'app-header',
@@ -18,14 +17,17 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
-    MatIconModule,
-    MatListModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    TypographyComponent,
   ],
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  iconeHambuguer = faBars;
-  @Input() drawer?: MatSidenav;
+  /** Quando `false`, exibe navegação da landing (rotas em `/inicio` com fragmentos). */
+  readonly isLoggedIn = input(true);
+
+  readonly drawer = input<MatSidenav | undefined>(undefined);
+
+  readonly iconeMenu = faBars;
 }

@@ -21,6 +21,7 @@ import {
   faClock
 } from '@fortawesome/free-regular-svg-icons';
 import { FiltroCarona } from '../../models/filtro.model';
+import { TypographyComponent } from '../../../../shared/ui/typography/typography';
 
 @Component({
   selector: 'app-carona-filter',
@@ -35,7 +36,8 @@ import { FiltroCarona } from '../../models/filtro.model';
     MatButtonModule,
     MatIconModule,
     MatTooltipModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    TypographyComponent,
   ],
   templateUrl: './carona-filter.component.html',
   styleUrls: ['./carona-filter.component.scss']

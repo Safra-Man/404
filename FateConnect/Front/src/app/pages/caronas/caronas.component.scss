@@ -23,6 +23,10 @@
   color: var(--app-texto-fundo-forte);
   background: var(--app-cor-principal);
   box-shadow: var(--app-sombra-componentes);
+
+  app-typography {
+    --app-typography-text-color: currentColor;
+  }
 }
 
 .caronas-tabs {
@@ -42,8 +46,11 @@
   gap: 3px;
   text-decoration: none;
   color: var(--app-cor-principal);
-  font-weight: 600;
   padding: 16px 4px;
+
+  app-typography {
+    --app-typography-text-color: currentColor;
+  }
 }
 
 .tab.left {

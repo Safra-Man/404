@@ -74,10 +74,10 @@ body,
 
   --app-sombra-componentes: 0 2px 5px rgba(0,0,0,0.08);
   --app-borda-componentes: 8px;
-  --app-tamanho-texto-fonte: 0.95rem;
-  --app-tamanho-tag-fonte: 0.8rem;
-  --app-tamanho-subtitulo-fonte: 1.1rem;
-  --app-tamanho-padrao-icone: 16px;
+
+  --app-icon-small: 16px;
+  --app-icon-medium: 24px;
+  --app-icon-large: 32px;
 
   @include mat.list-overrides((
     list-item-label-text-color: var(--app-texto-fundo-forte),
@@ -96,6 +96,21 @@ body,
     button-color: var(--app-texto-sobre-branco),
     supporting-text-color: var(--app-texto-sobre-branco),
   ));
+}
+
+/* Marca FateConnect: toolbar (app-header) e sidenav (layouts). */
+.logo-app {
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+
+  app-typography {
+    --app-typography-text-color: var(--app-texto-fundo-forte);
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
 }
 
 .mat-mdc-snack-bar-container.snackbar-success .mdc-snackbar__surface {

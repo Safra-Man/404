@@ -1,8 +1,8 @@
 <div class="caronas-header">
-  <h1 class="titulo-pagina">Caronas</h1>
+  <app-typography class="titulo-pagina" variant="h1">Caronas</app-typography>
   <a class="btn-voltar" routerLink="/menu">
     <fa-icon [icon]="iconeVoltar"></fa-icon>
-    Voltar
+    <app-typography variant="subtitle-bold">Voltar</app-typography>
   </a>
 </div>
 
@@ -14,7 +14,7 @@
     [routerLinkActiveOptions]="{ exact: true }"
   >
     <fa-icon [icon]="iconeBuscar"></fa-icon>
-    Buscar Carona
+    <app-typography variant="subtitle-bold">Buscar Carona</app-typography>
   </a>
   <a
     class="tab right"
@@ -22,7 +22,7 @@
     routerLinkActive="ativo"
   >
     <fa-icon [icon]="iconeAdicionar"></fa-icon>
-    Ofertar Carona
+    <app-typography variant="subtitle-bold">Ofertar Carona</app-typography>
   </a>
 </div>
 

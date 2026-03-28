@@ -14,16 +14,25 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { Carona } from '../../models/carona.model';
 import { ConfirmDialogComponent } from '../../../../shared/ui/dialogs/confirm-dialog/confirm-dialog.component';
+import { TypographyComponent } from '../../../../shared/ui/typography/typography';
 
 @Component({
   selector: 'app-carona-card',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatIconModule, MatButtonModule, MatDialogModule, FontAwesomeModule],
+  imports: [
+    CommonModule,
+    MatCardModule,
+    MatIconModule,
+    MatButtonModule,
+    MatDialogModule,
+    FontAwesomeModule,
+    TypographyComponent,
+  ],
   templateUrl: './carona-card.component.html',
   styleUrl: './carona-card.component.scss'
 })
 export class CaronaCardComponent {
-  private dialog = inject(MatDialog);
+  private readonly dialog = inject(MatDialog);
   @Input({ required: true }) carona!: Carona;
   @Output() excluir = new EventEmitter<Carona>();
 

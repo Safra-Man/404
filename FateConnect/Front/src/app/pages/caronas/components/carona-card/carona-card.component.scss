@@ -20,9 +20,6 @@
 
   .destino {
     margin: 0;
-    font-size: var(--app-tamanho-subtitulo-fonte);
-    font-weight: 600;
-    color: var(--app-cor-principal);
   }
 
   .right-side {
@@ -38,24 +35,29 @@
   margin-bottom: 12px;
   color: var(--app-texto-sobre-branco);
 
+  app-typography {
+    --app-typography-text-color: currentColor;
+  }
+
   .info-item {
     display: flex;
     align-items: center;
-    gap: 5px;
-    font-size: var(--app-tamanho-texto-fonte);
+    gap: 4px;
 
     fa-icon.small-icon {
       color: var(--app-cor-destaque);
-      font-size: var(--app-tamanho-padrao-icone);
+      font-size: var(--app-icon-small);
     }
   }
 }
 
 .descricao {
   color: var(--app-texto-sobre-branco);
-  font-size: var(--app-tamanho-texto-fonte);
   margin-bottom: 12px;
-  line-height: 1.3;
+
+  app-typography {
+    --app-typography-text-color: currentColor;
+  }
 }
 
 .verde {
@@ -71,8 +73,10 @@
 .tag {
   padding: 4px 12px;
   border-radius: 12px;
-  font-size: var(--app-tamanho-tag-fonte);
-  font-weight: 600;
+
+  app-typography {
+    --app-typography-text-color: currentColor;
+  }
 }
 
 .acoes {

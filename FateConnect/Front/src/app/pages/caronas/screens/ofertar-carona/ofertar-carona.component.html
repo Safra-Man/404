@@ -1,13 +1,13 @@
 <div class="ofertar-wrapper">
   <div class="ofertar-card">
-    <h2>Ofertar Nova Carona</h2>
-    <p>
+    <app-typography variant="h2">Ofertar Nova Carona</app-typography>
+    <app-typography variant="subtitle">
       Compartilhe uma carona com outros estudantes da Fatec Sorocaba
-    </p>
+    </app-typography>
 
     <button class="btn-ofertar" type="button" (click)="onClickOfertar()">
       <fa-icon [icon]="iconeAdicionar"></fa-icon>
-      Ofertar Carona
+      <app-typography variant="subtitle-bold">Ofertar Carona</app-typography>
     </button>
   </div>
 </div>

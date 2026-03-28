@@ -1,6 +1,8 @@
- <mat-dialog-content>
-  <h2 class="title">{{ data.title || 'Confirmar ação' }}</h2>
-   <p class="message" [innerHTML]="data.message || 'Tem certeza que deseja continuar?'"></p>
+<mat-dialog-content>
+  <app-typography variant="h2">{{ data.title || 'Confirmar ação' }}</app-typography>
+  <app-typography variant="subtitle">
+    <span class="message" [innerHTML]="data.message || 'Tem certeza que deseja continuar?'"></span>
+  </app-typography>
 </mat-dialog-content>
 <mat-dialog-actions>
   <button extended mat-raised-button color="primary" (click)="onCancel()">{{ data.cancelText || 'Cancelar' }}</button>
