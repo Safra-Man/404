@@ -1,0 +1,37 @@
+<article class="login-card" aria-labelledby="landing-login-title">
+  <app-typography variant="h2" id="landing-login-title">Acesse sua conta</app-typography>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+    <mat-form-field appearance="outline" subscriptSizing="dynamic" class="full-width">
+      <mat-label>E-mail</mat-label>
+      <input matInput id="landing-login-email" type="email" formControlName="email" autocomplete="email" />
+      @if (form.controls.email.hasError('required') && form.controls.email.touched) {
+      <mat-error>Informe o e-mail</mat-error>
+      } @else if (form.controls.email.hasError('email') && form.controls.email.touched) {
+      <mat-error>E-mail inválido</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" subscriptSizing="dynamic" class="full-width">
+      <mat-label>Senha</mat-label>
+      <input matInput [type]="hidePassword() ? 'password' : 'text'" formControlName="password"
+        autocomplete="current-password" />
+      <button matIconSuffix mat-icon-button type="button" [attr.aria-pressed]="!hidePassword()"
+        aria-label="Mostrar ou ocultar senha" (click)="togglePasswordVisibility()">
+        <fa-icon [icon]="hidePassword() ? faEye : faEyeSlash"></fa-icon>
+      </button>
+      @if (form.controls.password.hasError('required') && form.controls.password.touched) {
+      <mat-error>Informe a senha</mat-error>
+      }
+    </mat-form-field>
+
+    <button mat-raised-button color="warn" type="submit" class="submit-btn">Entrar</button>
+  </form>
+
+  <p class="signup-row">
+    <app-typography variant="caption">Não tem conta?</app-typography>
+    <a href="#" class="signup-link" (click)="$event.preventDefault()">
+      <app-typography variant="caption-bold" class="signup-link">Cadastre-se</app-typography>
+    </a>
+  </p>
+</article>
