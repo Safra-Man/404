@@ -8,6 +8,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { MenuComponent } from './pages/menu/menu.component';
 import { LostAndFoundPageComponent } from './pages/lost-and-found/lost-and-found-page.component';
 import { ContactPageComponent } from './pages/contact/contact-page.component';
+import { SignupPageComponent } from './pages/signup/signup-page.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'inicio', pathMatch: 'full' },
@@ -22,6 +23,7 @@ export const routes: Routes = [
     children: [
       { path: 'menu', component: MenuComponent },
       { path: 'achados-perdidos', component: LostAndFoundPageComponent },
+      { path: 'cadastro', component: SignupPageComponent },
       { path: 'contato', component: ContactPageComponent },
       {
         path: 'caronas',

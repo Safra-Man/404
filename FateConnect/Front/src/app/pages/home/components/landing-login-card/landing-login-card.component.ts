@@ -13,7 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { filter } from 'rxjs/operators';
@@ -23,6 +23,7 @@ import { TypographyComponent } from '../../../../shared/ui/typography/typography
   selector: 'app-landing-login-card',
   standalone: true,
   imports: [
+    RouterLink,
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
