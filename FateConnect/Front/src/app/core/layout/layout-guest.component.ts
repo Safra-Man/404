@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 import { RouterModule, RouterOutlet } from '@angular/router';
@@ -10,6 +10,7 @@ import { LandingAnchorService } from '../landing-anchor.service';
 @Component({
   selector: 'app-layout-guest',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     RouterModule,
     RouterOutlet,
@@ -25,7 +26,7 @@ import { LandingAnchorService } from '../landing-anchor.service';
 export class LayoutGuestComponent {
   private readonly landingAnchor = inject(LandingAnchorService);
 
-  navigateFragment(drawer: MatSidenav, fragment: string): void {
+  closeDrawerAndGoToFragment(drawer: MatSidenav, fragment: string): void {
     drawer.close();
     this.landingAnchor.go(fragment);
   }

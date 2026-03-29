@@ -7,19 +7,19 @@ import { LandingAnchorService } from '../../../core/landing-anchor.service';
 import { HeaderComponent } from './header.component';
 
 @Component({ standalone: true, template: '' })
-class InicioStubComponent {}
+class HomeStubComponent {}
 
 @Component({ standalone: true, template: '' })
 class MenuStubComponent {}
 
 @Component({ standalone: true, template: '' })
-class AchadosStubComponent {}
+class LostAndFoundStubComponent {}
 
 @Component({ standalone: true, template: '' })
-class CaronasStubComponent {}
+class RidesStubComponent {}
 
 @Component({ standalone: true, template: '' })
-class ContatoStubComponent {}
+class ContactStubComponent {}
 
 describe('HeaderComponent (guest / isLoggedIn=false)', () => {
   let fixture: ComponentFixture<HeaderComponent>;
@@ -28,7 +28,7 @@ describe('HeaderComponent (guest / isLoggedIn=false)', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [HeaderComponent],
-      providers: [provideRouter([{ path: 'inicio', component: InicioStubComponent }])],
+      providers: [provideRouter([{ path: 'inicio', component: HomeStubComponent }])],
     }).compileComponents();
 
     landingAnchor = TestBed.inject(LandingAnchorService);
@@ -78,9 +78,9 @@ describe('HeaderComponent (logado / isLoggedIn default)', () => {
       providers: [
         provideRouter([
           { path: 'menu', component: MenuStubComponent },
-          { path: 'achados-perdidos', component: AchadosStubComponent },
-          { path: 'caronas', component: CaronasStubComponent },
-          { path: 'contato', component: ContatoStubComponent },
+          { path: 'achados-perdidos', component: LostAndFoundStubComponent },
+          { path: 'caronas', component: RidesStubComponent },
+          { path: 'contato', component: ContactStubComponent },
         ]),
       ],
     }).compileComponents();

@@ -4,7 +4,8 @@
   <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
     <mat-form-field appearance="outline" subscriptSizing="dynamic" class="full-width">
       <mat-label>E-mail</mat-label>
-      <input matInput id="landing-login-email" type="email" formControlName="email" autocomplete="email" />
+      <input matInput id="landing-login-email" name="username" type="email" formControlName="email"
+        autocomplete="username" />
       @if (form.controls.email.hasError('required') && form.controls.email.touched) {
       <mat-error>Informe o e-mail</mat-error>
       } @else if (form.controls.email.hasError('email') && form.controls.email.touched) {
@@ -14,11 +15,12 @@
 
     <mat-form-field appearance="outline" subscriptSizing="dynamic" class="full-width">
       <mat-label>Senha</mat-label>
-      <input matInput [type]="hidePassword() ? 'password' : 'text'" formControlName="password"
-        autocomplete="current-password" />
+      <input matInput id="landing-login-password" name="password" formControlName="password"
+        [type]="hidePassword() ? 'password' : 'text'"
+        [attr.autocomplete]="hidePassword() ? 'current-password' : 'off'" />
       <button matIconSuffix mat-icon-button type="button" [attr.aria-pressed]="!hidePassword()"
         aria-label="Mostrar ou ocultar senha" (click)="togglePasswordVisibility()">
-        <fa-icon [icon]="hidePassword() ? faEye : faEyeSlash"></fa-icon>
+        <fa-icon [icon]="hidePassword() ? eyeIcon : eyeSlashIcon"></fa-icon>
       </button>
       @if (form.controls.password.hasError('required') && form.controls.password.touched) {
       <mat-error>Informe a senha</mat-error>
@@ -30,8 +32,8 @@
 
   <p class="signup-row">
     <app-typography variant="caption">Não tem conta?</app-typography>
-    <a href="#" class="signup-link" (click)="$event.preventDefault()">
+    <button type="button" class="signup-link" (click)="$event.preventDefault()">
       <app-typography variant="caption-bold" class="signup-link">Cadastre-se</app-typography>
-    </a>
+    </button>
   </p>
 </article>

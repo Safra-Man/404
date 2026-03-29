@@ -7,7 +7,7 @@ import { LandingAnchorService } from '../landing-anchor.service';
 import { LayoutGuestComponent } from './layout-guest.component';
 
 @Component({ standalone: true, template: '' })
-class InicioStubComponent {}
+class HomeStubComponent {}
 
 describe('LayoutGuestComponent', () => {
   let fixture: ComponentFixture<LayoutGuestComponent>;
@@ -16,7 +16,7 @@ describe('LayoutGuestComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [LayoutGuestComponent],
-      providers: [provideRouter([{ path: 'inicio', component: InicioStubComponent }])],
+      providers: [provideRouter([{ path: 'inicio', component: HomeStubComponent }])],
     }).compileComponents();
 
     landingAnchor = TestBed.inject(LandingAnchorService);
@@ -31,7 +31,7 @@ describe('LayoutGuestComponent', () => {
     expect(sidenav).not.toBeNull();
     if (!sidenav) return;
 
-    const items = sidenav.queryAll(By.css('a[mat-list-item]'));
+    const items = sidenav.queryAll(By.css('button[mat-list-item]'));
     expect(items.length).toBe(4);
 
     const expected = ['servicos', 'como-funciona', 'contato', 'login'];

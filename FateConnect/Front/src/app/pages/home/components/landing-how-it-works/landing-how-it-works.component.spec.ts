@@ -14,8 +14,8 @@ describe('LandingHowItWorksComponent', () => {
   });
 
   it('deve exibir dois passos', () => {
-    const passos = fixture.nativeElement.querySelectorAll('.passo');
-    expect(passos.length).toBe(2);
+    const stepCards = fixture.nativeElement.querySelectorAll('.step-card');
+    expect(stepCards.length).toBe(2);
   });
 
   it('deve mencionar Cadastre-se e Explore', () => {

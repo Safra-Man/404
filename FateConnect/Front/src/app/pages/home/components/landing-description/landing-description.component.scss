@@ -14,12 +14,12 @@
 }
 
 .description-title {
-  --app-typography-text-color: var(--app-cor-principal);
+  --app-typography-text-color: var(--app-color-primary);
   text-align: center;
 }
 
 .description-lead {
-  --app-typography-text-color: var(--app-texto-sobre-branco);
+  --app-typography-text-color: var(--app-text-muted);
   text-align: center;
 }
 
@@ -42,13 +42,13 @@
   justify-content: center;
 
   fa-icon {
-    font-size: var(--app-icon-small);
-    color: var(--app-cor-destaque);
+    font-size: var(--app-icon-sm);
+    color: var(--app-color-accent);
   }
 }
 
 .highlight-label {
-  --app-typography-text-color: var(--app-cor-principal);
+  --app-typography-text-color: var(--app-color-primary);
   text-align: center;
 }
 

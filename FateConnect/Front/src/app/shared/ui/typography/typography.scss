@@ -1,7 +1,7 @@
-/* Escala de tipografia só neste componente (rem + peso + lh). Cor: --app-typography-text-color (default --app-cor-principal). */
+/* Escala de tipografia só neste componente (rem + peso + lh). Cor: --app-typography-text-color (default --app-color-primary). */
 :host {
   display: contents;
-  --app-typography-text-color: var(--app-cor-principal);
+  --app-typography-text-color: var(--app-color-primary);
 
   --app-typography-h1-size: 2rem;
   --app-typography-h1-size-narrow: 1.5rem;

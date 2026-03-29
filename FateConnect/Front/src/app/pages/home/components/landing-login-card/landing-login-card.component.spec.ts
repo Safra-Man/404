@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { provideNoopAnimations } from '@angular/platform-browser/animations';
-import { RouterTestingModule } from '@angular/router/testing';
+import { provideRouter } from '@angular/router';
 import { LandingLoginCardComponent } from './landing-login-card.component';
 
 describe('LandingLoginCardComponent', () => {
@@ -8,8 +7,8 @@ describe('LandingLoginCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LandingLoginCardComponent, RouterTestingModule],
-      providers: [provideNoopAnimations()],
+      imports: [LandingLoginCardComponent],
+      providers: [provideRouter([])],
     }).compileComponents();
 
     fixture = TestBed.createComponent(LandingLoginCardComponent);

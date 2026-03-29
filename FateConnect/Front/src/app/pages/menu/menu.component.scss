@@ -10,11 +10,11 @@
   padding: 7vw;
 }
 
-.menu-lead {
-  color: var(--app-texto-sobre-branco);
+.menu-intro {
+  color: var(--app-text-muted);
 
   ::ng-deep app-typography {
-    --app-typography-text-color: var(--app-texto-sobre-branco);
+    --app-typography-text-color: var(--app-text-muted);
   }
 }
 
@@ -38,8 +38,8 @@ button {
   border-width: 0;
   min-width: 300px;
   height: auto;
-  background-color: var(--app-fundo-branco);
-  box-shadow: var(--app-sombra-componentes);
+  background-color: var(--app-surface-white);
+  box-shadow: var(--app-shadow-component);
 
   &:hover {
     transform: scale(1.05);
@@ -55,11 +55,11 @@ button {
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  background-color: var(--app-cor-destaque);
+  background-color: var(--app-color-accent);
 }
 
 fa-icon {
-  font-size: var(--app-icon-large);
-  color: var(--app-fundo-branco);
+  font-size: var(--app-icon-lg);
+  color: var(--app-surface-white);
 }
 

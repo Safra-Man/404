@@ -47,8 +47,8 @@ export class LandingLoginCardComponent implements AfterViewInit {
   });
 
   readonly hidePassword = signal(true);
-  readonly faEye = faEye;
-  readonly faEyeSlash = faEyeSlash;
+  readonly eyeIcon = faEye;
+  readonly eyeSlashIcon = faEyeSlash;
 
   ngAfterViewInit(): void {
     const focusEmail = (): void => {
@@ -80,7 +80,8 @@ export class LandingLoginCardComponent implements AfterViewInit {
 
   onSubmit(): void {
     if (this.form.valid) {
-      /* UI only (#11): autenticação real virá com a API. */
+      this.router.navigate(['/menu']);
+      /* Somente UI (#11): autenticação real virá com a API. */
     } else {
       this.form.markAllAsTouched();
     }

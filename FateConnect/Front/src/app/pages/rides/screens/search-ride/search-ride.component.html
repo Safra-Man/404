@@ -1,0 +1,22 @@
+<div class="filter-ride">
+  <app-ride-filter (rideFilterApply)="loadRides($event)"></app-ride-filter>
+</div>
+
+<div class="ride-list">
+  @if (isLoading()) {
+    <div class="loading-container">
+      <mat-progress-spinner
+        mode="indeterminate"
+        diameter="60">
+      </mat-progress-spinner>
+    </div>
+  } @else {
+    @if (rideList().length > 0) {
+      @for (item of rideList(); track item.id) {
+        <app-ride-card [ride]="item" (edit)="onEdit($event)" (delete)="onDelete($event)"></app-ride-card>
+      }
+    } @else {
+      <app-typography variant="subtitle">Nenhuma carona encontrada.</app-typography>
+    }
+  }
+</div>

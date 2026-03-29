@@ -5,9 +5,9 @@
     </a>
 
     <div class="desktop-menu">
-      <button mat-button routerLink="/achados-perdidos">Achados & Perdidos</button>
-      <button mat-button routerLink="/caronas">Caronas</button>
-      <button mat-button routerLink="/contato">Entre em Contato</button>
+      <button type="button" mat-button routerLink="/achados-perdidos">Achados & Perdidos</button>
+      <button type="button" mat-button routerLink="/caronas">Caronas</button>
+      <button type="button" mat-button routerLink="/contato">Entre em Contato</button>
     </div>
   } @else {
     <a class="logo-app" routerLink="/inicio">
@@ -23,6 +23,6 @@
   }
 
   <button type="button" mat-icon-button class="mobile-menu-btn" (click)="drawer()?.toggle()">
-    <fa-icon [icon]="iconeMenu" size="lg"></fa-icon>
+    <fa-icon [icon]="menuIcon" size="lg"></fa-icon>
   </button>
 </mat-toolbar>
