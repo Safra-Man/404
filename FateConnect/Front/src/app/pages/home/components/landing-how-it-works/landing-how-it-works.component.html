@@ -1,0 +1,21 @@
+<section
+  id="como-funciona"
+  class="how-section landing-anchor"
+  aria-labelledby="como-funciona-heading"
+>
+  <app-typography variant="h1" id="como-funciona-heading" class="section-title">
+    Como Funciona
+  </app-typography>
+
+  <div class="steps-grid">
+    @for (step of steps; track step.number) {
+      <article class="passo step-card">
+        <span class="step-badge" aria-hidden="true">{{ step.number }}</span>
+        <div class="step-body">
+          <app-typography variant="h2" class="step-title">{{ step.title }}</app-typography>
+          <app-typography variant="subtitle" class="step-desc">{{ step.description }}</app-typography>
+        </div>
+      </article>
+    }
+  </div>
+</section>
