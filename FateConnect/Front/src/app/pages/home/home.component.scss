@@ -4,7 +4,36 @@
   width: 100%;
 }
 
-.landing-anchor {
-  min-height: 40vh;
-  padding: 1rem;
+.home-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.description-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 7vh 7vw;
+  gap: 32px;
+}
+
+.login-anchor {
+  display: flex;
+}
+
+.services-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--app-fundo-branco);
+}
+
+@media (max-width: 968px) {
+  .description-container {
+    flex-direction: column;
+  }
+
+  .login-anchor {
+    justify-content: center;
+  }
 }

@@ -1,3 +1,13 @@
+// Shell (guest + logado): fixed — .mat-drawer-container tem overflow:hidden e quebra sticky.
+:host-context(.layout) {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
 mat-toolbar {
   transition: box-shadow 0.3s ease;
   height: 64px;

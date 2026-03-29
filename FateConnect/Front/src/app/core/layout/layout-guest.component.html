@@ -7,14 +7,10 @@
     </div>
 
     <mat-nav-list>
-      <a mat-list-item routerLink="/inicio" fragment="servicos" (click)="drawer.close()">Serviços</a>
-      <a mat-list-item routerLink="/inicio" fragment="como-funciona" (click)="drawer.close()">
-        Como Funciona
-      </a>
-      <a mat-list-item routerLink="/inicio" fragment="contato" (click)="drawer.close()">
-        Entre em Contato
-      </a>
-      <a mat-list-item routerLink="/inicio" fragment="login" (click)="drawer.close()">Entrar</a>
+      <a mat-list-item (click)="navigateFragment(drawer, 'servicos')">Serviços</a>
+      <a mat-list-item (click)="navigateFragment(drawer, 'como-funciona')">Como Funciona</a>
+      <a mat-list-item (click)="navigateFragment(drawer, 'contato')">Entre em Contato</a>
+      <a mat-list-item (click)="navigateFragment(drawer, 'login')">Entrar</a>
     </mat-nav-list>
   </mat-sidenav>
 

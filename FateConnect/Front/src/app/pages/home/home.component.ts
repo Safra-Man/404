@@ -1,10 +1,18 @@
 import { Component } from '@angular/core';
-import { TypographyComponent } from '../../shared/ui/typography/typography';
+import { LandingDescriptionComponent } from './components/landing-description/landing-description.component';
+import { LandingHowItWorksComponent } from './components/landing-how-it-works/landing-how-it-works.component';
+import { LandingLoginCardComponent } from './components/landing-login-card/landing-login-card.component';
+import { LandingServicesComponent } from './components/landing-services/landing-services.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [TypographyComponent],
+  imports: [
+    LandingDescriptionComponent,
+    LandingLoginCardComponent,
+    LandingServicesComponent,
+    LandingHowItWorksComponent,
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })

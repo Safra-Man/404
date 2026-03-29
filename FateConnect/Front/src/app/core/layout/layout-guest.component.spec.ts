@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { provideRouter, RouterLink } from '@angular/router';
 
+import { LandingAnchorService } from '../landing-anchor.service';
 import { LayoutGuestComponent } from './layout-guest.component';
 
 @Component({ standalone: true, template: '' })
@@ -10,6 +11,7 @@ class InicioStubComponent {}
 
 describe('LayoutGuestComponent', () => {
   let fixture: ComponentFixture<LayoutGuestComponent>;
+  let landingAnchor: LandingAnchorService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -17,24 +19,32 @@ describe('LayoutGuestComponent', () => {
       providers: [provideRouter([{ path: 'inicio', component: InicioStubComponent }])],
     }).compileComponents();
 
+    landingAnchor = TestBed.inject(LandingAnchorService);
     fixture = TestBed.createComponent(LayoutGuestComponent);
     fixture.detectChanges();
     await fixture.whenStable();
   });
 
-  it('deve listar no sidenav os quatro itens com fragment e logo para /inicio', () => {
+  it('deve listar no sidenav quatro itens que chamam landingAnchor.go com o fragmento certo', () => {
+    spyOn(landingAnchor, 'go');
     const sidenav = fixture.debugElement.query(By.css('mat-sidenav'));
     expect(sidenav).not.toBeNull();
     if (!sidenav) return;
 
-    const links = sidenav.queryAll(By.directive(RouterLink));
-    const routerLinks = links.map((el) => el.injector.get(RouterLink));
+    const items = sidenav.queryAll(By.css('a[mat-list-item]'));
+    expect(items.length).toBe(4);
 
-    const fragments = routerLinks
-      .map((rl) => rl.fragment)
-      .filter((f): f is string => f != null)
-      .sort((a, b) => a.localeCompare(b));
-    expect(fragments).toEqual(['como-funciona', 'contato', 'login', 'servicos']);
+    const expected = ['servicos', 'como-funciona', 'contato', 'login'];
+    for (let i = 0; i < expected.length; i++) {
+      (items[i].nativeElement as HTMLElement).click();
+      expect(landingAnchor.go).toHaveBeenCalledWith(expected[i]);
+    }
+  });
+
+  it('logo no sidenav aponta para /inicio sem fragment', () => {
+    const sidenav = fixture.debugElement.query(By.css('mat-sidenav'));
+    expect(sidenav).not.toBeNull();
+    if (!sidenav) return;
 
     const logo = sidenav.query(By.css('a.logo-app'));
     expect(logo).not.toBeNull();

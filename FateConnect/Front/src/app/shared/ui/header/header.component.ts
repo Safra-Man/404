@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { LandingAnchorService } from '../../../core/landing-anchor.service';
 import { TypographyComponent } from '../typography/typography';
 
 @Component({
@@ -30,4 +31,6 @@ export class HeaderComponent {
   readonly drawer = input<MatSidenav | undefined>(undefined);
 
   readonly iconeMenu = faBars;
+
+  protected readonly landingAnchor = inject(LandingAnchorService);
 }
