@@ -38,6 +38,10 @@ $tema-claro: mat.m2-define-light-theme((
 
 @include mat.all-component-themes($tema-claro);
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body,
 * {

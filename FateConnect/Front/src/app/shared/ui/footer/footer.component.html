@@ -3,15 +3,15 @@
     <app-typography variant="h2">Entre em contato</app-typography>
     <div class="contact-item">
       <fa-icon [icon]="faEnvelope" size="sm"></fa-icon>
-      <app-typography variant="caption">f003.alunos@fatec.sp.gov.br</app-typography>
+      <app-typography variant="caption">{{ contact.email }}</app-typography>
     </div>
     <div class="contact-item">
       <fa-icon [icon]="faPhone" size="sm"></fa-icon>
-      <app-typography variant="caption">(15) 3238-5266</app-typography>
+      <app-typography variant="caption">{{ contact.phone }}</app-typography>
     </div>
     <div class="contact-item">
       <fa-icon [icon]="faLocationDot" size="sm"></fa-icon>
-      <app-typography variant="caption">Av. Eng. Carlos Reinaldo Mendes, 2015</app-typography>
+      <app-typography variant="caption">{{ contact.address }}</app-typography>
     </div>
   </div>
 

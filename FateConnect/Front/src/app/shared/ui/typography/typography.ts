@@ -6,6 +6,7 @@ export type TypographyVariant =
   | 'subtitle'
   | 'subtitle-bold'
   | 'caption'
+  | 'caption-bold'
   | 'logo';
 
 @Component({

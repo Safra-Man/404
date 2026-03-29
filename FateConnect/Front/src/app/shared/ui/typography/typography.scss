@@ -4,7 +4,7 @@
   --app-typography-text-color: var(--app-cor-principal);
 
   --app-typography-h1-size: 2rem;
-  --app-typography-h1-size-narrow: 1.875rem;
+  --app-typography-h1-size-narrow: 1.5rem;
   --app-typography-h1-weight: 700;
   --app-typography-h1-lh: 1.2;
 
@@ -21,6 +21,8 @@
   --app-typography-caption-size: 0.875rem;
   --app-typography-caption-weight: 400;
   --app-typography-caption-lh: 1.4;
+
+  --app-typography-caption-bold-weight: 700;
 
   --app-typography-logo-size: 1.3rem;
   --app-typography-logo-weight: 600;
@@ -60,6 +62,12 @@
 .typography--caption {
   font-size: var(--app-typography-caption-size);
   font-weight: var(--app-typography-caption-weight);
+  line-height: var(--app-typography-caption-lh);
+}
+
+.typography--caption-bold {
+  font-size: var(--app-typography-caption-size);
+  font-weight: var(--app-typography-caption-bold-weight);
   line-height: var(--app-typography-caption-lh);
 }
 
