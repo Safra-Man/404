@@ -1,0 +1,32 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer mode="over" position="end" class="sidenav">
+    <div class="logo-container">
+      <a class="logo-app" routerLink="/inicio">
+        <app-typography variant="logo">FateConnect</app-typography>
+      </a>
+    </div>
+
+    <mat-nav-list>
+      <a mat-list-item routerLink="/inicio" fragment="servicos" (click)="drawer.close()">Serviços</a>
+      <a mat-list-item routerLink="/inicio" fragment="como-funciona" (click)="drawer.close()">
+        Como Funciona
+      </a>
+      <a mat-list-item routerLink="/inicio" fragment="contato" (click)="drawer.close()">
+        Entre em Contato
+      </a>
+      <a mat-list-item routerLink="/inicio" fragment="login" (click)="drawer.close()">Entrar</a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <main class="layout">
+      <app-header [drawer]="drawer" [isLoggedIn]="false"></app-header>
+
+      <div class="conteudo">
+        <router-outlet></router-outlet>
+      </div>
+
+      <app-footer></app-footer>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>

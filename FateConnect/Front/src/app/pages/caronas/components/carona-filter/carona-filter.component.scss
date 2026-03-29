@@ -1,7 +1,6 @@
 .filter-panel {
   margin-bottom: 16px;
   border-radius: var(--app-borda-componentes);
-  box-shadow: var(--app-sombra-componentes) !important;
   background: var(--app-fundo-branco);
   color: var(--app-cor-principal);
 
@@ -85,43 +84,5 @@
 @media (max-width: 768px) {
   .mobile-hidden {
     display: none;
-  }
-}
-
-::ng-deep {
-  .mat-mdc-option {
-    color: var(--app-cor-principal);
-    font-size: 1rem !important;
-
-    &.mat-mdc-option-active,
-    &.mat-mdc-option-selected {
-      color: var(--app-cor-principal);
-    }
-
-    .mdc-list-item__primary-text {
-      color: inherit;
-    }
-  }
-
-  .mat-expansion-panel-body {
-    padding-bottom: 32px !important;
-  }
-
-  .mdc-notched-outline__leading {
-    border-top-left-radius: 8px !important;
-    border-bottom-left-radius: 8px !important;
-    width: 8px !important;
-  }
-
-  .mdc-notched-outline__trailing {
-    border-top-right-radius: 8px !important;
-    border-bottom-right-radius: 8px !important;
-  }
-
-  .mat-mdc-input-element,
-  .mat-mdc-select-value-text,
-  .mat-mdc-select-placeholder {
-    font-size: 1rem !important;
-    line-height: 1.5 !important;
   }
 }

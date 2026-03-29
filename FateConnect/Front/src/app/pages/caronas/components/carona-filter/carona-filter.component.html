@@ -1,4 +1,4 @@
-<mat-expansion-panel [expanded]="true" class="filter-panel">
+<mat-expansion-panel [expanded]="true" class="filter-panel carona-filter">
 
   <mat-expansion-panel-header>
     <mat-panel-title class="filter-header">
@@ -50,7 +50,11 @@
           <fa-icon [icon]="iconeInfo" class="info-icon" matTooltip="Filtrar por tipo de carona: Filantrópica, com caronas totalmente gratuitas, ou Igualitária, em que os participantes dividem os custos."></fa-icon>
         </label>
         <mat-form-field appearance="outline" subscriptSizing="dynamic">
-          <mat-select formControlName="tipoCarona" placeholder="Selecione">
+          <mat-select
+            formControlName="tipoCarona"
+            placeholder="Selecione"
+            panelClass="carona-filter-select-panel"
+          >
             @for (option of tipoCarona; track option.value) {
               <mat-option [value]="option.value">
                 {{ option.viewValue }}

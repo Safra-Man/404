@@ -98,6 +98,48 @@ body,
   ));
 }
 
+/* Carona — filtros: tokens Material no escopo `.carona-filter` (sem ::ng-deep no componente). */
+.carona-filter {
+  @include mat.form-field-overrides((
+    outlined-container-shape: var(--app-borda-componentes),
+    container-text-size: 1rem,
+    container-text-line-height: 1.5,
+  ));
+  @include mat.select-overrides((
+    trigger-text-size: 1rem,
+    trigger-text-line-height: 1.5,
+  ));
+  @include mat.expansion-overrides((
+    container-elevation-shadow: var(--app-sombra-componentes),
+  ));
+}
+
+.carona-filter .mat-expansion-panel-body {
+  padding-bottom: 32px;
+}
+
+.cdk-overlay-container .carona-filter-select-panel.mat-mdc-select-panel {
+  .mat-mdc-option {
+    color: var(--app-cor-principal);
+    font-size: 1rem;
+
+    &.mat-mdc-option-active,
+    &.mat-mdc-option-selected {
+      color: var(--app-cor-principal);
+    }
+
+    .mdc-list-item__primary-text {
+      color: inherit;
+    }
+  }
+}
+
+app-confirm-dialog {
+  @include mat.button-overrides((
+    filled-label-text-color: var(--app-texto-fundo-forte),
+  ));
+}
+
 /* Marca FateConnect: toolbar (app-header) e sidenav (layouts). */
 .logo-app {
   text-decoration: none;

@@ -1,0 +1,54 @@
+// Estilos compartilhados entre layout logado e layout guest (sidenav + shell).
+@mixin app-layout-shell {
+  .sidenav-container {
+    background-color: var(--app-fundo-cinza);
+    height: 100vh;
+  }
+
+  html,
+  body,
+  mat-sidenav-content {
+    overflow-x: hidden;
+  }
+
+  .logo-container {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 3vw;
+    padding-left: 3vw;
+  }
+
+  .sidenav {
+    width: 300px;
+    background-color: var(--app-cor-principal);
+    padding: 7vw 0;
+    overflow-x: hidden;
+
+    mat-nav-list {
+      a[mat-list-item] {
+        &:hover {
+          background-color: var(--app-fundo-hover);
+        }
+      }
+    }
+
+    * {
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+  }
+
+  .layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .conteudo {
+    display: flex;
+    flex: 1;
+    padding: 3vw 7vw;
+  }
+}
