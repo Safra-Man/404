@@ -1,0 +1,61 @@
+/* Fundo cinza em desktop e mobile (mockups alinhados — uma única decisão). */
+.services-section {
+  padding: 5vh 7vw 7vh;
+}
+
+.section-title {
+  display: block;
+  text-align: center;
+  margin-bottom: 2rem;
+  --app-typography-text-color: var(--app-cor-principal);
+}
+
+.cards-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.service-card {
+  display: flex;
+  flex: 0.5;
+  flex-direction: column;
+  min-width: 500px;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  text-align: center;
+  background-color: var(--app-fundo-cinza);
+  border-radius: var(--app-borda-componentes);
+  box-shadow: var(--app-sombra-componentes);
+}
+
+.icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: var(--app-cor-destaque);
+}
+
+fa-icon {
+  font-size: var(--app-icon-large);
+  color: var(--app-fundo-branco);
+}
+
+.card-title {
+  --app-typography-text-color: var(--app-cor-principal);
+}
+
+.card-body {
+  --app-typography-text-color: var(--app-texto-sobre-branco);
+}
+
+@media (max-width: 768px) {
+  .service-card {
+    min-width: 100%;
+  }
+}
