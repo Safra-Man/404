@@ -17,3 +17,4 @@ dotnet_diagnostic.SA1210.severity = none
 dotnet_diagnostic.IDE0028.severity = none
 dotnet_diagnostic.SA1000.severity = none
 max_line_length = 100
+dotnet_diagnostic.SA0001.severity = none

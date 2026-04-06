@@ -1,6 +1,6 @@
-using Microsoft.EntityFrameworkCore;
-using FateConnect.Api.Modules.Usuarios;
 using FateConnect.Api.Modules.Shared.Entities;
+using FateConnect.Api.Modules.Usuarios;
+using Microsoft.EntityFrameworkCore;
 namespace FateConnect.Api.Infrastructure.Database;
 
 public class FateConnectDbContext : DbContext
