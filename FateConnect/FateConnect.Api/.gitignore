@@ -1,0 +1,4 @@
+.env
+.env.*
+[Bb]in/
+[Oo]bj/
