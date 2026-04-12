@@ -31,7 +31,7 @@ describe('LayoutGuestComponent', () => {
     expect(sidenav).not.toBeNull();
     if (!sidenav) return;
 
-    const items = sidenav.queryAll(By.css('button[mat-list-item]'));
+    const items = sidenav.queryAll(By.css('a[mat-list-item]'));
     expect(items.length).toBe(4);
 
     const expected = ['servicos', 'como-funciona', 'contato', 'login'];
