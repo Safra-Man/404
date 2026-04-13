@@ -18,12 +18,16 @@ export const routes: Routes = [
     children: [{ path: '', component: HomeComponent }],
   },
   {
+    path: 'cadastro',
+    component: LayoutGuestComponent,
+    children: [{ path: '', component: SignupPageComponent }],
+  },
+  {
     path: '',
     component: LayoutComponent,
     children: [
       { path: 'menu', component: MenuComponent },
       { path: 'achados-perdidos', component: LostAndFoundPageComponent },
-      { path: 'cadastro', component: SignupPageComponent },
       { path: 'contato', component: ContactPageComponent },
       {
         path: 'caronas',
