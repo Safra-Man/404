@@ -38,6 +38,11 @@ app-typography#signup-title {
   flex-direction: column;
 }
 
+.signup-form__cep-spinner {
+  display: inline-block;
+  margin-right: 0.25rem;
+}
+
 .signup-form-divider {
   width: 100%;
   height: 1px;
@@ -55,6 +60,8 @@ app-typography#signup-title {
   grid-template-columns: 1fr;
   gap: 1rem;
   margin-top: 1rem;
+  /* Evita que campos na mesma linha estiquem quando um vizinho exibe mat-error (altura dinâmica). */
+  align-items: start;
 }
 
 .signup-form__field {

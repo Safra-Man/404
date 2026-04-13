@@ -130,7 +130,8 @@ body,
   padding-bottom: 32px;
 }
 
-.cdk-overlay-container .ride-filter-select-panel.mat-mdc-select-panel {
+/* mat-select (overlay): list-overrides globais usam texto claro (sidenav); opções em painel branco precisam de cor legível. */
+.cdk-overlay-container .mat-mdc-select-panel {
   .mat-mdc-option {
     color: var(--app-color-primary);
     font-size: 1rem;

@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Runs Front unit tests (Karma, Chrome headless) before each push.
+# Enable for this clone: git config core.hooksPath .githooks
+set -euo pipefail
+
+ROOT="$(git rev-parse --show-toplevel)"
+FRONT="$ROOT/FateConnect/Front"
+
+if [[ ! -f "$FRONT/package.json" ]]; then
+  echo "pre-push: expected $FRONT/package.json" >&2
+  exit 1
+fi
+
+if ! command -v npm >/dev/null 2>&1; then
+  echo "pre-push: npm not found on PATH" >&2
+  exit 1
+fi
+
+cd "$FRONT"
+npm run test:ci

@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DestroyRef, inject, signal } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import {
   AbstractControl,
   FormBuilder,
@@ -8,16 +9,20 @@ import {
 } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { RouterLink } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { NgxMaskDirective } from 'ngx-mask';
+import { EMPTY, catchError, debounceTime, distinctUntilChanged, filter, finalize, map, switchMap } from 'rxjs';
+import { CepLookupService } from '../../core/services/cep-lookup.service';
 import { TypographyComponent } from '../../shared/ui/typography/typography';
+import { BirthDateSlashMaskDirective } from './birth-date-slash-mask.directive';
 import { BRAZILIAN_STATES } from './brazilian-states.constant';
 import { GENDER_OPTIONS, type GenderValue } from './gender-options.constant';
 
@@ -41,11 +46,13 @@ function brazilianPhoneValidator(control: AbstractControl): ValidationErrors | n
     MatButtonModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatNativeDateModule,
     MatCheckboxModule,
     MatSnackBarModule,
+    MatProgressSpinnerModule,
     FontAwesomeModule,
     TypographyComponent,
+    NgxMaskDirective,
+    BirthDateSlashMaskDirective,
   ],
   templateUrl: './signup-page.component.html',
   styleUrl: './signup-page.component.scss',
@@ -53,15 +60,23 @@ function brazilianPhoneValidator(control: AbstractControl): ValidationErrors | n
 export class SignupPageComponent {
   private readonly fb = inject(FormBuilder);
   private readonly snackBar = inject(MatSnackBar);
+  private readonly cepLookup = inject(CepLookupService);
+  private readonly destroyRef = inject(DestroyRef);
 
   readonly hidePassword = signal(true);
+  readonly cepLookupLoading = signal(false);
   readonly eyeIcon = faEye;
   readonly eyeSlashIcon = faEyeSlash;
 
   readonly genderOptions = GENDER_OPTIONS;
   readonly brazilianStates = BRAZILIAN_STATES;
 
-  readonly maxBirthDate = new Date();
+  /** Última data de nascimento permitida: quem completa 18 anos hoje ainda pode se cadastrar. */
+  readonly maxBirthDate = (() => {
+    const d = new Date();
+    d.setFullYear(d.getFullYear() - 18);
+    return d;
+  })();
   readonly minBirthDate = new Date(1900, 0, 1);
 
   readonly form = this.fb.nonNullable.group({
@@ -82,6 +97,54 @@ export class SignupPageComponent {
     acceptTerms: [false, Validators.requiredTrue],
     acceptMarketing: [false],
   });
+
+  constructor() {
+    this.form.controls.zipCode.valueChanges
+      .pipe(
+        map((value) => String(value ?? '').replaceAll(/\D/g, '')),
+        debounceTime(400),
+        distinctUntilChanged(),
+        filter((digits) => digits.length === 8),
+        switchMap((digits) => {
+          this.cepLookupLoading.set(true);
+          return this.cepLookup.lookup(digits).pipe(
+            catchError(() => {
+              this.snackBar.open('Não foi possível consultar o CEP. Tente novamente.', 'OK', {
+                duration: 5000,
+                verticalPosition: 'top',
+                panelClass: ['snackbar-error'],
+              });
+              return EMPTY;
+            }),
+            finalize(() => this.cepLookupLoading.set(false))
+          );
+        }),
+        takeUntilDestroyed(this.destroyRef)
+      )
+      .subscribe((data) => {
+        if (data.erro === 'true') {
+          this.form.patchValue(
+            { street: '', city: '', state: '' },
+            { emitEvent: false }
+          );
+          this.snackBar.open('CEP não encontrado.', 'OK', {
+            duration: 5000,
+            verticalPosition: 'top',
+            panelClass: ['snackbar-warning'],
+          });
+          return;
+        }
+        this.form.patchValue(
+          {
+            zipCode: data.cep ?? '',
+            street: data.logradouro ?? '',
+            city: data.localidade ?? '',
+            state: data.uf ?? '',
+          },
+          { emitEvent: false }
+        );
+      });
+  }
 
   togglePasswordVisibility(): void {
     this.hidePassword.update((v) => !v);

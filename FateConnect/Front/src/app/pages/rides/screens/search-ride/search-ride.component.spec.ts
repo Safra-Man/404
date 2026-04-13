@@ -1,9 +1,16 @@
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
+import { LOCALE_ID } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { DateAdapter, MAT_DATE_LOCALE, provideNativeDateAdapter } from '@angular/material/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { of } from 'rxjs';
+import { PtBrDateAdapter } from '../../../../core/date/pt-br-date.adapter';
 import { SearchRideComponent } from './search-ride.component';
 import { RideService } from '../../services/ride.service';
 import { Ride } from '../../models/ride.model';
+
+registerLocaleData(localePt, 'pt-BR');
 
 describe('SearchRideComponent', () => {
   let fixture: ComponentFixture<SearchRideComponent>;
@@ -27,7 +34,14 @@ describe('SearchRideComponent', () => {
 
     await TestBed.configureTestingModule({
       imports: [SearchRideComponent],
-      providers: [MatSnackBar, { provide: RideService, useValue: rideService }],
+      providers: [
+        { provide: LOCALE_ID, useValue: 'pt-BR' },
+        { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },
+        ...provideNativeDateAdapter(),
+        { provide: DateAdapter, useClass: PtBrDateAdapter },
+        MatSnackBar,
+        { provide: RideService, useValue: rideService },
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(SearchRideComponent);
