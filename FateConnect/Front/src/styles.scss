@@ -1,13 +1,13 @@
 @use '@angular/material' as mat;
 @use 'sass:color';
 
-$cor-principal-base: #43545C;
-$cor-destaque-base: #CF2E2E;
+$primary-color-base: #43545C;
+$accent-color-base: #CF2E2E;
 
 $primary-palette: mat.m2-define-palette((
-  100: color.scale($cor-principal-base, $lightness: +25%),
-  500: $cor-principal-base,
-  700: color.scale($cor-principal-base, $lightness: -20%),
+  100: color.scale($primary-color-base, $lightness: +25%),
+  500: $primary-color-base,
+  700: color.scale($primary-color-base, $lightness: -20%),
 
   contrast: (
     100: black,
@@ -17,9 +17,9 @@ $primary-palette: mat.m2-define-palette((
 ));
 
 $accent-palette: mat.m2-define-palette((
-  100: color.scale($cor-destaque-base, $lightness: +25%),
-  500: $cor-destaque-base,
-  700: color.scale($cor-destaque-base, $lightness: -20%),
+  100: color.scale($accent-color-base, $lightness: +25%),
+  500: $accent-color-base,
+  700: color.scale($accent-color-base, $lightness: -20%),
 
   contrast: (
     100: black,
@@ -28,7 +28,7 @@ $accent-palette: mat.m2-define-palette((
   )
 ));
 
-$tema-claro: mat.m2-define-light-theme((
+$light-theme: mat.m2-define-light-theme((
   color: (
     primary: $primary-palette,
     accent: $accent-palette
@@ -36,7 +36,19 @@ $tema-claro: mat.m2-define-light-theme((
   density: 0
 ));
 
-@include mat.all-component-themes($tema-claro);
+@include mat.all-component-themes($light-theme);
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Landing: offset sob a toolbar + scroll por fragmento (scrollIntoView). */
+#servicos,
+#como-funciona,
+#contato,
+#login {
+  scroll-margin-top: 5rem;
+}
 
 html,
 body,
@@ -49,62 +61,123 @@ body,
 }
 
 :root {
-  --app-cor-principal: #43545C;
+  --app-color-primary: #43545C;
 
-  --app-fundo-cinza: #F0F2F4;
-  --app-fundo-branco: #FFFFFF;
-  --app-fundo-hover: rgba(255, 255, 255, 0.6);
+  --app-surface-gray: #F0F2F4;
+  --app-surface-white: #FFFFFF;
+  --app-surface-hover: rgba(255, 255, 255, 0.6);
 
-  --app-texto-sobre-branco: #6C757D;
-  --app-texto-sobre-cinza: #747D84;
-  --app-texto-fundo-forte: rgba(255,255,255,0.9);
+  --app-text-muted: #6C757D;
+  --app-text-on-gray: #747D84;
+  --app-text-on-accent: rgba(255,255,255,0.9);
 
-  --app-cor-destaque: #CF2E2E;
+  --app-color-accent: #CF2E2E;
 
-  --app-sucesso-fonte: #155724;
-  --app-sucesso-fundo: #D4EDDA;
+  --app-success-text: #155724;
+  --app-success-bg: #D4EDDA;
 
-  --app-warning-fonte: #856404;
-  --app-warning-fundo: #FFF3CD;
+  --app-warning-text: #856404;
+  --app-warning-bg: #FFF3CD;
 
-  --app-alerta-fonte: #CF2E2E;
-  --app-alerta-fundo: #FFDFDF;
+  --app-danger-text: #CF2E2E;
+  --app-danger-bg: #FFDFDF;
 
-  --app-divisor: #FFFFFF80;
+  --app-divider: #FFFFFF80;
 
-  --app-sombra-componentes: 0 2px 5px rgba(0,0,0,0.08);
-  --app-borda-componentes: 8px;
-  --app-tamanho-texto-fonte: 0.95rem;
-  --app-tamanho-tag-fonte: 0.8rem;
-  --app-tamanho-subtitulo-fonte: 1.1rem;
-  --app-tamanho-padrao-icone: 16px;
+  --app-shadow-component: 0 2px 5px rgba(0,0,0,0.08);
+  --app-radius-component: 10px;
+
+  --app-icon-sm: 16px;
+  --app-icon-md: 24px;
+  --app-icon-lg: 32px;
 
   @include mat.list-overrides((
-    list-item-label-text-color: var(--app-texto-fundo-forte),
+    list-item-label-text-color: var(--app-text-on-accent),
     list-item-leading-icon-start-space: 7vw,
     list-item-leading-icon-end-space: 7vw,
-    list-item-focus-label-text-color: var(--app-texto-fundo-forte),
+    list-item-focus-label-text-color: var(--app-text-on-accent),
   ));
 
   @include mat.dialog-overrides((
     container-shape: 16px,
-    subhead-color: var(--app-cor-principal),
-    supporting-text-color: var(--app-cor-principal),
+    subhead-color: var(--app-color-primary),
+    supporting-text-color: var(--app-color-primary),
   ));
 
   @include mat.snack-bar-overrides((
-    button-color: var(--app-texto-sobre-branco),
-    supporting-text-color: var(--app-texto-sobre-branco),
+    button-color: var(--app-text-muted),
+    supporting-text-color: var(--app-text-muted),
   ));
 }
 
+/* Caronas (ride filter): tokens Material no escopo `.ride-filter`. */
+.ride-filter {
+  @include mat.form-field-overrides((
+    outlined-container-shape: var(--app-radius-component),
+    container-text-size: 1rem,
+    container-text-line-height: 1.5,
+  ));
+  @include mat.select-overrides((
+    trigger-text-size: 1rem,
+    trigger-text-line-height: 1.5,
+  ));
+  @include mat.expansion-overrides((
+    container-elevation-shadow: var(--app-shadow-component),
+  ));
+}
+
+.ride-filter .mat-expansion-panel-body {
+  padding-bottom: 32px;
+}
+
+/* mat-select (overlay): list-overrides globais usam texto claro (sidenav); opções em painel branco precisam de cor legível. */
+.cdk-overlay-container .mat-mdc-select-panel {
+  .mat-mdc-option {
+    color: var(--app-color-primary);
+    font-size: 1rem;
+
+    &.mat-mdc-option-active,
+    &.mat-mdc-option-selected {
+      color: var(--app-color-primary);
+    }
+
+    .mdc-list-item__primary-text {
+      color: inherit;
+    }
+  }
+}
+
+app-confirm-dialog {
+  @include mat.button-overrides((
+    filled-label-text-color: var(--app-text-on-accent),
+  ));
+}
+
+/* Marca FateConnect: toolbar (app-header) e sidenav (layouts). */
+.logo-app {
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+
+  app-typography {
+    --app-typography-text-color: var(--app-text-on-accent);
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
 .mat-mdc-snack-bar-container.snackbar-success .mdc-snackbar__surface {
-  background-color: var(--app-sucesso-fundo);
+  background-color: var(--app-success-bg);
 }
 .mat-mdc-snack-bar-container.snackbar-error .mdc-snackbar__surface {
-  background-color: var(--app-alerta-fundo);
+  background-color: var(--app-danger-bg);
+}
+.mat-mdc-snack-bar-container.snackbar-warning .mdc-snackbar__surface {
+  background-color: var(--app-warning-bg);
 }
 
 .mat-mdc-dialog-container .mdc-dialog__surface {
-  border-radius: var(--app-borda-componentes);
+  border-radius: var(--app-radius-component);
 }

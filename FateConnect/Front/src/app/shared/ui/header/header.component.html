@@ -1,15 +1,28 @@
-<mat-toolbar color="primary" [class.sem-sombra]="drawer?.opened">
+<mat-toolbar color="primary" [class.sem-sombra]="drawer()?.opened">
+  @if (isLoggedIn()) {
+    <a class="logo-app" routerLink="/menu">
+      <app-typography variant="logo">FateConnect</app-typography>
+    </a>
 
-  <span class="logo-app" routerLink="/menu">FateConnect</span>
+    <div class="desktop-menu">
+      <button type="button" mat-button routerLink="/achados-perdidos">Achados & Perdidos</button>
+      <button type="button" mat-button routerLink="/caronas">Caronas</button>
+      <button type="button" mat-button routerLink="/contato">Entre em Contato</button>
+    </div>
+  } @else {
+    <a class="logo-app" routerLink="/inicio">
+      <app-typography variant="logo">FateConnect</app-typography>
+    </a>
 
-  <div class="desktop-menu">
-    <button mat-button routerLink="/achados-perdidos">Achados & Perdidos</button>
-    <button mat-button routerLink="/caronas">Caronas</button>
-    <button mat-button routerLink="/contato">Entre em Contato</button>
-  </div>
+    <div class="desktop-menu">
+      <button type="button" mat-button (click)="landingAnchor.go('servicos')">Serviços</button>
+      <button type="button" mat-button (click)="landingAnchor.go('como-funciona')">Como Funciona</button>
+      <button type="button" mat-button (click)="landingAnchor.go('contato')">Entre em Contato</button>
+      <button type="button" mat-flat-button color="accent" (click)="landingAnchor.go('login')">Entrar</button>
+    </div>
+  }
 
-  <button mat-icon-button class="mobile-menu-btn" (click)="drawer?.toggle()">
-    <fa-icon [icon]="iconeHambuguer" size="lg"></fa-icon>
+  <button type="button" mat-icon-button class="mobile-menu-btn" (click)="drawer()?.toggle()">
+    <fa-icon [icon]="menuIcon" size="lg"></fa-icon>
   </button>
-
 </mat-toolbar>

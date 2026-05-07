@@ -1,0 +1,31 @@
+<div class="rides-header">
+  <app-typography class="page-title" variant="h1">Caronas</app-typography>
+  <a class="btn-back" routerLink="/menu">
+    <fa-icon [icon]="backIcon"></fa-icon>
+    <app-typography variant="subtitle-bold">Voltar</app-typography>
+  </a>
+</div>
+
+<div class="rides-tabs">
+  <a
+    class="tab left"
+    routerLink="buscar"
+    routerLinkActive="active"
+    ariaCurrentWhenActive="page"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    <fa-icon [icon]="searchIcon"></fa-icon>
+    <app-typography variant="subtitle-bold">Buscar Carona</app-typography>
+  </a>
+  <a
+    class="tab right"
+    routerLink="ofertar"
+    routerLinkActive="active"
+    ariaCurrentWhenActive="page"
+  >
+    <fa-icon [icon]="addIcon"></fa-icon>
+    <app-typography variant="subtitle-bold">Ofertar Carona</app-typography>
+  </a>
+</div>
+
+<router-outlet></router-outlet>

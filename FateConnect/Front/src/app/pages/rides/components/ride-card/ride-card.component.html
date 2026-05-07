@@ -1,0 +1,54 @@
+<mat-card class="card-container">
+  <mat-card-content>
+
+    <div class="header-row">
+      <app-typography class="destination" variant="subtitle-bold">{{ ride().destino }}</app-typography>
+
+      <div class="right-side">
+        <div class="tags desktop-only">
+          <span [class]="typeTagClass(ride().tipoCarona)">
+            <app-typography variant="caption">{{ typeDisplayLabel(ride().tipoCarona) }}</app-typography>
+          </span>
+        </div>
+
+        <div class="actions">
+          <button type="button" mat-icon-button aria-label="Editar" class="edit" (click)="onEdit()">
+            <fa-icon [icon]="editIcon"></fa-icon>
+          </button>
+
+          <button type="button" mat-icon-button aria-label="Excluir" class="delete" (click)="confirmDelete()">
+             <fa-icon [icon]="deleteIcon"></fa-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-row">
+      <div class="info-item">
+        <fa-icon [icon]="calendarIcon" class="small-icon"></fa-icon>
+        <app-typography variant="caption">{{ ride().dataPartida | date:'dd/MM/yyyy' }}</app-typography>
+      </div>
+
+      <div class="info-item">
+        <fa-icon [icon]="clockIcon" class="small-icon"></fa-icon>
+        <app-typography variant="caption">{{ ride().horaPartida | slice:0:5 }}</app-typography>
+      </div>
+
+      <div class="info-item">
+        <fa-icon [icon]="userGroupIcon" class="small-icon"></fa-icon>
+        <app-typography variant="caption">{{ ride().qtdVagas }} vagas</app-typography>
+      </div>
+    </div>
+
+    <div class="description">
+      <app-typography variant="subtitle">{{ ride().descricao }}</app-typography>
+    </div>
+
+    <div class="tags mobile-only">
+      <span [class]="typeTagClass(ride().tipoCarona)">
+        <app-typography variant="caption">{{ typeDisplayLabel(ride().tipoCarona) }}</app-typography>
+      </span>
+    </div>
+
+  </mat-card-content>
+</mat-card>

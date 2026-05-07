@@ -1,0 +1,7 @@
+# Baseline explícito (alinhado ao suporte atual do Angular).
+# App em modo zoneless + top-level await no `main.ts` exige bundler com async nativo.
+last 2 Chrome versions
+last 2 Edge versions
+last 2 Firefox versions
+last 2 Safari major versions
+last 2 iOS major versions

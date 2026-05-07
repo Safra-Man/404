@@ -1,3 +1,13 @@
+// Shell (guest + logado): fixed — .mat-drawer-container tem overflow:hidden e quebra sticky.
+:host-context(.layout) {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
 mat-toolbar {
   transition: box-shadow 0.3s ease;
   height: 64px;
@@ -5,8 +15,8 @@ mat-toolbar {
   align-items: center;
   justify-content: space-between;
   padding: 0 7vw;
-
-  color: var(--app-texto-fundo-forte);
+  box-shadow: var(--app-shadow-component);
+  color: var(--app-text-on-accent);
 
   &.sem-sombra {
     box-shadow: none;
@@ -15,23 +25,15 @@ mat-toolbar {
 
 .desktop-menu {
   display: flex;
-  gap: 2vw;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.5vw;
 
-  button {
+  button[mat-button],
+  a[mat-button],
+  a[mat-flat-button] {
     font-weight: 500;
-    color: var(--app-texto-fundo-forte);
-  }
-}
-
-.logo-app {
-  font-weight: 600;
-  font-size: 1.3rem;
-  color: var(--app-texto-fundo-forte);
-  cursor: pointer;
-  transition: color 0.3s ease;
-
-  &:hover {
-    opacity: 0.8;
+    color: var(--app-text-on-accent);
   }
 }
 
@@ -43,6 +45,7 @@ mat-toolbar {
   .mobile-menu-btn {
     display: flex;
     align-items: center;
+    justify-content: center;
     width: 48px;
   }
 

@@ -1,0 +1,83 @@
+<mat-expansion-panel [expanded]="true" class="filter-panel ride-filter">
+
+  <mat-expansion-panel-header>
+    <mat-panel-title class="filter-header">
+      <fa-icon [icon]="filterIcon" class="filter-icon"></fa-icon>
+      <app-typography variant="subtitle-bold">Filtros</app-typography>
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+
+  <form [formGroup]="filterForm" (ngSubmit)="applyFilters()">
+
+    <div class="inputs-container">
+
+      <div class="input-wrapper">
+        <mat-form-field appearance="outline" subscriptSizing="dynamic">
+          <mat-label class="custom-field-label">
+            <app-typography variant="subtitle-bold">Data</app-typography>
+          </mat-label>
+          <input matInput id="ride-filter-departure-date" [matDatepicker]="picker" formControlName="departureDate"
+            placeholder="dd/mm/aaaa" autocomplete="off">
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <div class="input-wrapper">
+        <mat-form-field appearance="outline" subscriptSizing="dynamic">
+          <mat-label class="custom-field-label">
+            <app-typography variant="subtitle-bold">Hora</app-typography>
+          </mat-label>
+          <input matInput id="ride-filter-departure-time" type="time" formControlName="departureTime" #timeInput autocomplete="off">
+
+          <button type="button" matIconSuffix mat-icon-button class="time-picker-trigger"
+            aria-label="Abrir seletor de horário" (click)="timeInput.showPicker()">
+            <mat-icon>schedule</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+
+      <div class="input-wrapper">
+        <mat-form-field appearance="outline" subscriptSizing="dynamic">
+          <mat-label class="custom-field-label">
+            <app-typography variant="subtitle-bold">Destino</app-typography>
+          </mat-label>
+          <input matInput id="ride-filter-destination" placeholder="Digite o destino" formControlName="destination"
+            autocomplete="off">
+        </mat-form-field>
+      </div>
+
+      <div class="input-wrapper">
+        <mat-form-field appearance="outline" subscriptSizing="dynamic">
+          <mat-label class="custom-field-label">
+            <app-typography variant="subtitle-bold">Tipo</app-typography>
+            <fa-icon [icon]="infoIcon" class="info-icon" matTooltip="Filtrar por tipo de carona: Filantrópica, com caronas totalmente gratuitas, ou Igualitária, em que os participantes dividem os custos."></fa-icon>
+          </mat-label>
+          <mat-select
+            id="ride-filter-type"
+            formControlName="rideType"
+            placeholder="Selecione"
+            panelClass="ride-filter-select-panel"
+          >
+            @for (option of rideTypeOptions; track option.viewValue) {
+              <mat-option [value]="option.value">
+                {{ option.viewValue }}
+              </mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="input-wrapper button-wrapper">
+        <button mat-raised-button color="warn" type="submit" class="btn-filter">
+          <span class="btn-filter__content">
+            <fa-icon [icon]="searchIcon"></fa-icon>
+            <app-typography variant="subtitle-bold">Filtrar</app-typography>
+          </span>
+        </button>
+      </div>
+
+    </div>
+
+  </form>
+</mat-expansion-panel>

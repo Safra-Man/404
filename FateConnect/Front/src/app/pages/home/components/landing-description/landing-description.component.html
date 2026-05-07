@@ -1,0 +1,23 @@
+<div class="landing-description">
+  <div class="description-title-container">
+    <app-typography variant="h1" class="description-title">
+      Conectando a Comunidade Acadêmica
+    </app-typography>
+  </div>
+
+  <app-typography variant="subtitle" class="description-lead">
+    Facilite sua vida na Fatec Sorocaba: encontre caronas, recupere pertences, registre denúncias e interaja com outros
+    estudantes com total praticidade e segurança.
+  </app-typography>
+
+  <ul class="highlights" aria-label="Destaques do FateConnect">
+    @for (item of highlights; track item.label) {
+    <li class="highlight-item">
+      <span class="icon-disc" aria-hidden="true">
+        <fa-icon [icon]="item.icon" [fixedWidth]="true"></fa-icon>
+      </span>
+      <app-typography variant="subtitle-bold" class="highlight-label">{{ item.label }}</app-typography>
+    </li>
+    }
+  </ul>
+</div>

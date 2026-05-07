@@ -1,20 +1,22 @@
-<h1>Bem-vindo ao FateConnect</h1>
-<p>Escolha um dos serviços abaixo para começar.</p>
+<app-typography variant="h1">Bem-vindo ao FateConnect</app-typography>
+<div class="menu-intro">
+  <app-typography variant="subtitle">Escolha um dos serviços abaixo para começar.</app-typography>
+</div>
 
 <div class="cards-container">
-  <button routerLink="/achados-perdidos">
+  <button type="button" routerLink="/achados-perdidos">
     <div class="icon-container">
-      <fa-icon [icon]="faSearch"></fa-icon>
+      <fa-icon [icon]="searchIcon"></fa-icon>
     </div>
 
-    <h2>Achados & Perdidos</h2>
+    <app-typography variant="h2">Achados & Perdidos</app-typography>
   </button>
 
-  <button routerLink="/caronas">
+  <button type="button" routerLink="/caronas">
     <div class="icon-container">
-      <fa-icon [icon]="faCar"></fa-icon>
+      <fa-icon [icon]="carIcon"></fa-icon>
     </div>
 
-    <h2>Caronas</h2>
+    <app-typography variant="h2">Caronas</app-typography>
   </button>
 </div>

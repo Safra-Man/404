@@ -1,0 +1,19 @@
+<section
+  id="servicos"
+  class="services-section landing-anchor"
+  aria-labelledby="servicos-heading"
+>
+  <app-typography variant="h1" id="servicos-heading" class="section-title">Nossos Serviços</app-typography>
+
+  <div class="cards-grid">
+    @for (card of services; track card.title) {
+      <article class="service-card">
+        <div class="icon-container" aria-hidden="true">
+          <fa-icon [icon]="card.icon"></fa-icon>
+        </div>
+        <app-typography variant="h2" class="card-title">{{ card.title }}</app-typography>
+        <app-typography variant="subtitle" class="card-body">{{ card.description }}</app-typography>
+      </article>
+    }
+  </div>
+</section>

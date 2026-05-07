@@ -1,0 +1,86 @@
+.filter-panel {
+  margin-bottom: 16px;
+  border-radius: var(--app-radius-component);
+  background: var(--app-surface-white);
+  color: var(--app-color-primary);
+
+  &.mat-expansion-panel {
+    border: none;
+  }
+}
+
+.filter-header {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  color: var(--app-color-primary);
+
+  app-typography {
+    --app-typography-text-color: currentColor;
+  }
+
+  .filter-icon {
+    font-size: var(--app-icon-md);
+    color: var(--app-color-primary);
+  }
+}
+
+.inputs-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    flex: 1 1 calc(20% - 16px);
+    min-width: 180px;
+  }
+}
+
+/* Rótulos dentro do mat-form-field: associados ao controle pelo Material (Sonar Web:S6853). */
+mat-label.custom-field-label {
+  color: var(--app-color-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+
+  app-typography {
+    --app-typography-text-color: currentColor;
+  }
+
+  .info-icon {
+    color: var(--app-color-primary);
+    font-size: var(--app-icon-sm);
+    opacity: 0.8;
+  }
+}
+
+.time-picker-trigger {
+  color: var(--app-text-muted);
+}
+
+.btn-filter {
+  height: 56px;
+  letter-spacing: 0.4px;
+  border-radius: var(--app-radius-component);
+  background-color: var(--app-color-accent);
+  color: var(--app-text-on-accent);
+
+  .btn-filter__content {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  app-typography {
+    --app-typography-text-color: currentColor;
+  }
+}

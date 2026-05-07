@@ -1,0 +1,90 @@
+/* Escala de tipografia só neste componente (rem + peso + lh). Cor: --app-typography-text-color (default --app-color-primary). */
+:host {
+  display: contents;
+  --app-typography-text-color: var(--app-color-primary);
+
+  --app-typography-h1-size: 2rem;
+  --app-typography-h1-size-narrow: 1.5rem;
+  --app-typography-h1-weight: 700;
+  --app-typography-h1-lh: 1.2;
+
+  --app-typography-h2-size: 1.5rem;
+  --app-typography-h2-weight: 600;
+  --app-typography-h2-lh: 1.3;
+
+  --app-typography-subtitle-size: 1rem;
+  --app-typography-subtitle-weight: 500;
+  --app-typography-subtitle-lh: 1.5;
+
+  --app-typography-subtitle-bold-weight: 700;
+
+  --app-typography-caption-size: 0.875rem;
+  --app-typography-caption-weight: 400;
+  --app-typography-caption-lh: 1.4;
+
+  --app-typography-caption-bold-weight: 700;
+
+  --app-typography-logo-size: 1.3rem;
+  --app-typography-logo-weight: 600;
+  --app-typography-logo-lh: 1.2;
+}
+
+.typography {
+  margin: 0;
+  font-family: inherit;
+  color: var(--app-typography-text-color);
+}
+
+.typography--h1 {
+  font-size: var(--app-typography-h1-size);
+  font-weight: var(--app-typography-h1-weight);
+  line-height: var(--app-typography-h1-lh);
+}
+
+.typography--h2 {
+  font-size: var(--app-typography-h2-size);
+  font-weight: var(--app-typography-h2-weight);
+  line-height: var(--app-typography-h2-lh);
+}
+
+.typography--subtitle {
+  font-size: var(--app-typography-subtitle-size);
+  font-weight: var(--app-typography-subtitle-weight);
+  line-height: var(--app-typography-subtitle-lh);
+}
+
+.typography--subtitle-bold {
+  font-size: var(--app-typography-subtitle-size);
+  font-weight: var(--app-typography-subtitle-bold-weight);
+  line-height: var(--app-typography-subtitle-lh);
+}
+
+.typography--caption {
+  font-size: var(--app-typography-caption-size);
+  font-weight: var(--app-typography-caption-weight);
+  line-height: var(--app-typography-caption-lh);
+}
+
+.typography--caption-bold {
+  font-size: var(--app-typography-caption-size);
+  font-weight: var(--app-typography-caption-bold-weight);
+  line-height: var(--app-typography-caption-lh);
+}
+
+.typography--logo {
+  font-size: var(--app-typography-logo-size);
+  font-weight: var(--app-typography-logo-weight);
+  line-height: var(--app-typography-logo-lh);
+}
+
+@media (max-width: 768px) {
+  .typography--h1 {
+    font-size: var(--app-typography-h1-size-narrow);
+  }
+
+  :host-context(.copyright-container) .typography--caption,
+  :host-context(.contacts-container) .typography--caption,
+  :host-context(.contacts-container) .typography--h2 {
+    text-align: center;
+  }
+}

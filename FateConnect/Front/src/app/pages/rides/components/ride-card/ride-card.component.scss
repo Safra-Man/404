@@ -1,0 +1,112 @@
+:host {
+  display: flex;
+  width: 100%;
+}
+
+.card-container {
+  margin-bottom: 16px;
+  border-radius: var(--app-radius-component);
+  box-shadow: var(--app-shadow-component);
+  background: var(--app-surface-white);
+  color: var(--app-color-primary);
+  width: 100%;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+
+  .destination {
+    margin: 0;
+  }
+
+  .right-side {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+}
+
+.info-row {
+  display: flex;
+  gap: 5vw;
+  margin-bottom: 12px;
+  color: var(--app-text-muted);
+
+  app-typography {
+    --app-typography-text-color: currentColor;
+  }
+
+  .info-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    fa-icon.small-icon {
+      color: var(--app-color-accent);
+      font-size: var(--app-icon-sm);
+    }
+  }
+}
+
+.description {
+  color: var(--app-text-muted);
+  margin-bottom: 12px;
+
+  app-typography {
+    --app-typography-text-color: currentColor;
+  }
+}
+
+.tag-green {
+  background: var(--app-success-bg);
+  color: var(--app-success-text);
+}
+
+.tag-brown {
+  background: var(--app-warning-bg);
+  color: var(--app-warning-text);
+}
+
+.tag {
+  padding: 4px 12px;
+  border-radius: 12px;
+
+  app-typography {
+    --app-typography-text-color: currentColor;
+  }
+}
+
+.actions {
+  button {
+    width: 32px;
+    height: 32px;
+    padding: 4px;
+  }
+
+  .edit fa-icon,
+  .delete fa-icon {
+    transform: scale(0.7);
+    transform-origin: center;
+    display: inline-block;
+    color: var(--app-color-primary);
+  }
+}
+
+.mobile-only {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-only {
+    display: flex;
+    justify-content: flex-end;
+    padding: 12px 0;
+  }
+}

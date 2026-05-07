@@ -26,9 +26,7 @@ mat-dialog-actions {
 
 button {
   min-width: 120px;
-  border-radius: var(--app-borda-componentes);
-  font-weight: 600;
-  color: var(--app-texto-fundo-forte) !important;
+  border-radius: var(--app-radius-component);
   letter-spacing: 0.4px;
 
   @media (max-width: 768px) {

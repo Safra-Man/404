@@ -1,0 +1,74 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  gap: 1rem;
+  padding: 3vw 7vw;
+}
+
+.rides-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn-back {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: var(--app-radius-component);
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--app-text-on-accent);
+  background: var(--app-color-primary);
+  box-shadow: var(--app-shadow-component);
+
+  app-typography {
+    --app-typography-text-color: currentColor;
+  }
+}
+
+.rides-tabs {
+  display: flex;
+  width: 100%;
+  border-radius: var(--app-radius-component);
+  margin-top: 1rem;
+  background: var(--app-surface-white);
+  box-shadow: var(--app-shadow-component);
+}
+
+.tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  text-decoration: none;
+  color: var(--app-color-primary);
+  padding: 16px 4px;
+
+  app-typography {
+    --app-typography-text-color: currentColor;
+  }
+}
+
+.tab.left {
+  border-top-left-radius: var(--app-radius-component);
+  border-bottom-left-radius: var(--app-radius-component);
+}
+
+.tab.right {
+  border-top-right-radius: var(--app-radius-component);
+  border-bottom-right-radius: var(--app-radius-component);
+}
+
+.tab.active {
+  background: var(--app-color-accent);
+  color: var(--app-text-on-accent);
+}
+
+.page-title {
+  color: var(--app-color-primary);
+}

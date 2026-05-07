@@ -2,7 +2,9 @@
 
   <mat-sidenav #drawer mode="over" position="end" class="sidenav">
     <div class="logo-container">
-      <span class="logo-app">FateConnect</span>
+      <a class="logo-app" routerLink="/menu">
+        <app-typography variant="logo">FateConnect</app-typography>
+      </a>
     </div>
 
 
@@ -18,7 +20,7 @@
     <main class="layout">
       <app-header [drawer]="drawer"></app-header>
 
-      <div class="conteudo">
+      <div class="layout-main">
         <router-outlet></router-outlet>
       </div>
 

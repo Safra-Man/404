@@ -2,24 +2,16 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-color: var(--app-cor-principal);
-  color: var(--app-texto-fundo-forte);
+  background-color: var(--app-color-primary);
+  color: var(--app-text-on-accent);
   padding: 3vw 7vw;
+
+  app-typography {
+    --app-typography-text-color: var(--app-text-on-accent);
+  }
   height: auto;
   gap: 1rem;
   width: 100vw;
-}
-
-p,
-span {
-  font-size: 14px;
-  font-weight: 400;
-  color: var(--app-texto-fundo-forte);
-}
-
-.footer-title {
-  font-size: 1.5rem;
-  font-weight: 700;
 }
 
 .contacts-container {
@@ -30,10 +22,17 @@ span {
   width: 100%;
 }
 
+.contact-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .divider-container {
   width: 1px;
   height: auto;
-  background-color: var(--app-divisor);
+  background-color: var(--app-divider);
 }
 
 .copyright-container {
@@ -63,8 +62,4 @@ span {
     height: 1px;
   }
 
-  p,
-  span {
-    text-align: center;
-  }
 }

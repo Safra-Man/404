@@ -1,15 +1,24 @@
 <div class="footer">
-  <div class="contacts-container">
-    <p class="footer-title">Entre em contato</p>
-    <span><fa-icon [icon]="faEnvelope" size="sm"></fa-icon> f003.alunos@fatec.sp.gov.br</span>
-    <span><fa-icon [icon]="faPhone" size="sm"></fa-icon> (15) 3238-5266</span>
-    <span><fa-icon [icon]="faLocationDot" size="sm"></fa-icon> Av. Eng. Carlos Reinaldo Mendes, 2015</span>
+  <div id="contato" class="contacts-container">
+    <app-typography variant="h2">Entre em contato</app-typography>
+    <div class="contact-item">
+      <fa-icon [icon]="envelopeIcon" size="sm"></fa-icon>
+      <app-typography variant="caption">{{ contact.email }}</app-typography>
+    </div>
+    <div class="contact-item">
+      <fa-icon [icon]="phoneIcon" size="sm"></fa-icon>
+      <app-typography variant="caption">{{ contact.phone }}</app-typography>
+    </div>
+    <div class="contact-item">
+      <fa-icon [icon]="locationIcon" size="sm"></fa-icon>
+      <app-typography variant="caption">{{ contact.address }}</app-typography>
+    </div>
   </div>
 
   <div class="divider-container"></div>
 
   <div class="copyright-container">
-    <p>© 2026 FateConnect. Todos os direitos reservados.</p>
-    <p>Desenvolvido para facilitar a vida do Fatecano.</p>
+    <app-typography variant="caption">© 2026 FateConnect. Todos os direitos reservados.</app-typography>
+    <app-typography variant="caption">Desenvolvido para facilitar a vida do Fatecano.</app-typography>
   </div>
 </div>

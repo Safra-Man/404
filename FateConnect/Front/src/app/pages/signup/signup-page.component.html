@@ -1,0 +1,203 @@
+<article class="signup-card" aria-labelledby="signup-title">
+  <app-typography variant="h2" id="signup-title">Crie sua Conta</app-typography>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate class="signup-form">
+    <div class="signup-form__grid">
+      <mat-form-field appearance="outline" subscriptSizing="dynamic"
+        class="signup-form__field signup-form__field--full">
+        <mat-label>Nome completo</mat-label>
+        <input matInput id="signup-full-name" type="text" name="fullName" formControlName="fullName"
+          autocomplete="name" />
+        @if (form.controls.fullName.hasError('required') && form.controls.fullName.touched) {
+        <mat-error>Informe o nome completo</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" subscriptSizing="dynamic"
+        class="signup-form__field signup-form__field--third">
+        <mat-label>Apelido</mat-label>
+        <input matInput id="signup-nickname" type="text" name="nickname" formControlName="nickname"
+          autocomplete="nickname" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" subscriptSizing="dynamic"
+        class="signup-form__field signup-form__field--third">
+        <mat-label>E-mail Fatec</mat-label>
+        <input matInput id="signup-fatec-email" name="fatecEmail" type="email" formControlName="fatecEmail"
+          autocomplete="work email" placeholder="nome.sobrenome@aluno.cps.sp.gov.br" />
+        @if (form.controls.fatecEmail.hasError('required') && form.controls.fatecEmail.touched) {
+        <mat-error>Informe o e-mail Fatec</mat-error>
+        } @else if (form.controls.fatecEmail.hasError('email') && form.controls.fatecEmail.touched) {
+        <mat-error>E-mail inválido</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" subscriptSizing="dynamic"
+        class="signup-form__field signup-form__field--third">
+        <mat-label>Data de nascimento</mat-label>
+        <input matInput id="signup-birth-date" type="text" name="birthDate" appBirthDateSlashMask
+          [matDatepicker]="birthPicker" formControlName="birthDate" placeholder="dd/mm/aaaa" [max]="maxBirthDate"
+          [min]="minBirthDate" autocomplete="bday" maxlength="10" />
+        <mat-datepicker-toggle matIconSuffix [for]="birthPicker"></mat-datepicker-toggle>
+        <mat-datepicker #birthPicker></mat-datepicker>
+        @if (form.controls.birthDate.hasError('required') && form.controls.birthDate.touched) {
+        <mat-error>Informe a data de nascimento</mat-error>
+        }
+        @if (form.controls.birthDate.hasError('matDatepickerMax') && form.controls.birthDate.touched) {
+        <mat-error>É necessário ter pelo menos 18 anos</mat-error>
+        }
+        @if (form.controls.birthDate.hasError('matDatepickerMin') && form.controls.birthDate.touched) {
+        <mat-error>Data inválida</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" subscriptSizing="dynamic"
+        class="signup-form__field signup-form__field--third">
+        <mat-label>Gênero</mat-label>
+        <mat-select id="signup-gender" formControlName="gender" placeholder="Selecione..." autocomplete="sex">
+          <mat-option value="">Selecione...</mat-option>
+          @for (opt of genderOptions; track opt.value) {
+          <mat-option [value]="opt.value">{{ opt.label }}</mat-option>
+          }
+        </mat-select>
+        @if (form.controls.gender.hasError('required') && form.controls.gender.touched) {
+        <mat-error>Selecione o gênero</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" subscriptSizing="dynamic"
+        class="signup-form__field signup-form__field--third">
+        <mat-label>Senha</mat-label>
+        <input matInput id="signup-password" name="password" formControlName="password"
+          [type]="hidePassword() ? 'password' : 'text'" [attr.autocomplete]="hidePassword() ? 'new-password' : 'off'" />
+        <button matIconSuffix mat-icon-button type="button" [attr.aria-pressed]="!hidePassword()"
+          aria-label="Mostrar ou ocultar senha" (click)="togglePasswordVisibility()">
+          <fa-icon [icon]="hidePassword() ? eyeIcon : eyeSlashIcon"></fa-icon>
+        </button>
+        @if (form.controls.password.hasError('required') && form.controls.password.touched) {
+        <mat-error>Informe a senha</mat-error>
+        } @else if (form.controls.password.hasError('minlength') && form.controls.password.touched) {
+        <mat-error>Mínimo de 8 caracteres</mat-error>
+        }
+      </mat-form-field>
+    </div>
+
+    <div class="signup-form-divider"></div>
+
+    <app-typography variant="subtitle-bold" class="signup-form__section-title">Endereço</app-typography>
+    <div class="signup-form__grid">
+      <mat-form-field appearance="outline" subscriptSizing="dynamic"
+        class="signup-form__field signup-form__field--third">
+        <mat-label>CEP</mat-label>
+        <input matInput id="signup-zip" type="text" name="zipCode" formControlName="zipCode" mask="00000-000"
+          inputmode="numeric" autocomplete="postal-code" placeholder="00000-000"
+          [attr.aria-busy]="cepLookupLoading()" />
+        @if (cepLookupLoading()) {
+        <mat-spinner matSuffix class="signup-form__cep-spinner" diameter="20" aria-label="Consultando CEP" />
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" subscriptSizing="dynamic"
+        class="signup-form__field signup-form__field--third">
+        <mat-label>Estado</mat-label>
+        <mat-select id="signup-state" formControlName="state" autocomplete="address-level1">
+          <mat-option value="">Selecione...</mat-option>
+          @for (st of brazilianStates; track st.code) {
+          <mat-option [value]="st.code">{{ st.name }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" subscriptSizing="dynamic"
+        class="signup-form__field signup-form__field--third">
+        <mat-label>Cidade</mat-label>
+        <input matInput id="signup-city" type="text" name="city" formControlName="city" autocomplete="address-level2" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" subscriptSizing="dynamic"
+        class="signup-form__field signup-form__field--street">
+        <mat-label>Logradouro</mat-label>
+        <input matInput id="signup-street" type="text" name="street" formControlName="street"
+          autocomplete="address-line1" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" subscriptSizing="dynamic"
+        class="signup-form__field signup-form__field--number">
+        <mat-label>Número</mat-label>
+        <input matInput id="signup-street-number" type="text" name="streetNumber" formControlName="streetNumber"
+          autocomplete="off" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" subscriptSizing="dynamic"
+        class="signup-form__field signup-form__field--full">
+        <mat-label>Complemento</mat-label>
+        <input matInput id="signup-complement" type="text" name="complement" formControlName="complement"
+          autocomplete="address-line2" />
+      </mat-form-field>
+    </div>
+
+    <div class="signup-form-divider"></div>
+
+    <app-typography variant="subtitle-bold" class="signup-form__section-title">Dados para contato</app-typography>
+    <div class="signup-form__grid">
+      <mat-form-field appearance="outline" subscriptSizing="dynamic"
+        class="signup-form__field signup-form__field--half">
+        <mat-label>Telefone</mat-label>
+        <input matInput id="signup-phone" name="phone" type="tel" formControlName="phone"
+          mask="(00) 00000-0000||(00) 0000-0000" inputmode="tel" autocomplete="home tel"
+          placeholder="(00) 00000-0000" />
+        @if (form.controls.phone.hasError('required') && form.controls.phone.touched) {
+        <mat-error>Informe o telefone</mat-error>
+        } @else if (form.controls.phone.hasError('brazilianPhone') && form.controls.phone.touched) {
+        <mat-error>Telefone com DDD: 10 ou 11 dígitos</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" subscriptSizing="dynamic"
+        class="signup-form__field signup-form__field--half">
+        <mat-label>E-mail para contato</mat-label>
+        <input matInput id="signup-contact-email" name="contactEmail" type="email" formControlName="contactEmail"
+          autocomplete="home email" />
+        @if (form.controls.contactEmail.hasError('required') && form.controls.contactEmail.touched) {
+        <mat-error>Informe o e-mail</mat-error>
+        } @else if (form.controls.contactEmail.hasError('email') && form.controls.contactEmail.touched) {
+        <mat-error>E-mail inválido</mat-error>
+        }
+      </mat-form-field>
+    </div>
+
+    <div class="signup-form-divider"></div>
+
+    <div class="signup-form__consent">
+      <mat-checkbox formControlName="acceptTerms">
+        Eu concordo com os
+        <button type="button" class="signup-form__inline-link" (click)="notifyLegalSoon($event, 'terms')">
+          Termos de Uso
+        </button>
+        e
+        <button type="button" class="signup-form__inline-link" (click)="notifyLegalSoon($event, 'privacy')">
+          Política de Privacidade
+        </button>
+      </mat-checkbox>
+      @if (form.controls.acceptTerms.hasError('required') && form.controls.acceptTerms.touched) {
+      <span class="signup-form__consent-error" role="alert">É necessário aceitar os termos de uso e política de
+        privacidade para continuar.</span>
+      }
+
+      <mat-checkbox formControlName="acceptMarketing">
+        Eu concordo em receber e-mails e notificações do aplicativo
+      </mat-checkbox>
+    </div>
+
+    <div class="signup-form-submit-container">
+      <button mat-raised-button color="warn" type="submit" class="signup-form__submit">Cadastrar</button>
+
+      <p class="signup-form__login-row">
+        <app-typography variant="caption">Já tem uma conta?</app-typography>
+        <a routerLink="/inicio" fragment="login" class="signup-form__login-link">
+          <app-typography variant="caption-bold" class="signup-form__login-link-text">Faça login</app-typography>
+        </a>
+      </p>
+    </div>
+  </form>
+</article>

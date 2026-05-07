@@ -1,0 +1,48 @@
+:host {
+  display: flex;
+  width: 100%;
+}
+
+.offer-wrapper {
+  display: flex;
+  margin-top: 16px;
+  width: 100%;
+}
+
+.offer-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: var(--app-surface-white);
+  border-radius: var(--app-radius-component);
+  padding: 3rem 1rem;
+  text-align: center;
+  box-shadow: var(--app-shadow-component);
+  color: var(--app-color-primary);
+  gap: 1.5rem;
+}
+
+.btn-offer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 16px;
+  min-width: 200px;
+  border: 0;
+  border-radius: var(--app-radius-component);
+  color: var(--app-text-on-accent);
+  background: var(--app-color-accent);
+  box-shadow: var(--app-shadow-component);
+  cursor: pointer;
+
+  app-typography {
+    --app-typography-text-color: currentColor;
+  }
+
+  &:hover {
+    filter: brightness(0.95);
+  }
+}
