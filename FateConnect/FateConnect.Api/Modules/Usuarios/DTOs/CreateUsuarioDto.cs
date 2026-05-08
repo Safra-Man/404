@@ -12,6 +12,7 @@ public class CreateUsuarioDto
     [EmailAddress(ErrorMessage = "Formato de email inválido")]
     [RegularExpression(RegexConstants.EmailInstitucionalFatec, ErrorMessage = RegexConstants.MensagemErroEmailFatec)]
     [MaxLength(150)]
+    [DefaultValue("joao.silva999@aluno.cps.sp.gov.br")]
     public string EmailFatec { get; set; } = string.Empty;
 
     [Required(ErrorMessage = "A senha é obrigatória")]

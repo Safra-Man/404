@@ -27,7 +27,7 @@ public class FateConnectDbContext : DbContext
             entity.Property(e => e.Apelido).HasMaxLength(50);
             entity.Property(e => e.Senha).IsRequired().HasMaxLength(255);
             entity.Property(e => e.DataCadastro).HasDefaultValueSql("CURRENT_TIMESTAMP");
-            entity.Property(e => e.DataAtualizacao).HasDefaultValueSql("CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP");
+            entity.Property(e => e.DataAtualizacao).HasDefaultValueSql("CURRENT_TIMESTAMP");
         });
 
         modelBuilder.Entity<Endereco>(entity =>
